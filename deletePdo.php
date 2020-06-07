@@ -10,7 +10,7 @@ $registro = $conexion->prepare("DELETE FROM berry_atril_machines WHERE id_machin
 $registro->bindparam(':id', $id);
 
 if ($registro->execute()) {
-    return header("Location:index.php");
+    return header("Location:table.php");
 } else {
     return "error";
 }

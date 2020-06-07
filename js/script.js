@@ -9,28 +9,7 @@ $(".editbtn").on("click", function () {
   $("#ip").val(datos[2]);
   $("#mac").val(datos[3]);
   $("#campus").val(datos[4]);
-});
-
-//MODAL UPDATE!
-$(".updatebtn").on("click", function () {
-  $tr = $(this).closest("tr");
-  var datos = $tr.children("td").map(function () {
-    return $(this).text();
-  });
-  $("#update_id").val(datos[0]);
-  $("#type").val(datos[1]);
-  $("#ip").val(datos[2]);
-  $("#mac").val(datos[3]);
-  $("#campus").val(datos[4]);
-});
-
-//MODAL DELETE!
-$(".deletebtn").on("click", function () {
-  $tr = $(this).closest("tr");
-  var datos = $tr.children("td").map(function () {
-    return $(this).text();
-  });
-  $("#delete_id").val(datos[0]);
+  $("#observation").val(datos[6]);
 });
 
 //MODAL UPDATE!
@@ -44,6 +23,7 @@ $(".updatebtn").on("click", function () {
   $("#ip_update").val(datos[2]);
   $("#mac_update").val(datos[3]);
   $("#campus_update").val(datos[4]);
+  $("#observation_update").val(datos[6]);
 });
 
 //MODAL VIEW!
@@ -57,6 +37,16 @@ $(".viewbtn").on("click", function () {
   $("#ip").val(datos[2]);
   $("#mac").val(datos[3]);
   $("#campus").val(datos[4]);
+  $("#observation").val(datos[6]);
+});
+
+//MODAL DELETE!
+$(".deletebtn").on("click", function () {
+  $tr = $(this).closest("tr");
+  var datos = $tr.children("td").map(function () {
+    return $(this).text();
+  });
+  $("#delete_id").val(datos[0]);
 });
 
 //DATATABLE!

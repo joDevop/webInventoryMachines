@@ -1,0 +1,16 @@
+.img_logo_session img{
+    position: relative;
+    left: 830px;
+    width:6%;
+}
+
+.php_session{
+    position: relative;
+    left: 920px;
+    color: lightgray;
+}
+
+.btn-group{
+    position: relative;
+    left: -4px;
+}
