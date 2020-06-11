@@ -84,48 +84,49 @@
     </div>
     <br>
 
-    <table id="datatable" class="table table-striped table-bordered display text-center">
-      <thead class="table-active">
-        <tr>
-          <th scope="col" style="display:none;">#ID</th>
-          <th scope="col">DESCRIPCIÓN</th>
-          <th scope="col">RANGO IP</th>
-          <th scope="col">MAC</th>
-          <th scope="col">SEDE</th>
-          <th scope="col">FECHA DE CREACÍON</th>
-          <th scope="col" style="display:none;"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php include_once("queryPdo.php"); ?>
-        <?php foreach ($machines as $machine) { ?>
-
+    <div class="table-responsive" style="margin-bottom: 20px;">
+      <table id="datatable" class="table table-striped table-bordered display text-center">
+        <thead class="table-active">
           <tr>
-            <td class="text-left" id="id_machine" style="display:none;"><?php echo $machine->id_machine ?></td>
-            <td><?php echo $machine->machine_detail ?></td>
-            <td><?php echo $machine->ip_range ?></td>
-            <td><?php echo $machine->mac_address ?></td>
-            <td><?php echo $machine->campus ?></td>
-            <td><?php echo $machine->create_date ?></td>
-            <td style="font-size: 10px; display:none;"><?php echo $machine->observ ?></td>
-            <td><button type="button" name="view" class="btn btn-outline-info fas fa-desktop viewbtn" data-toggle="modal" data-target="#viewModal">
-
-              </button></td>
-            <td><button type="button" name="update" class="btn btn-outline-success fas fa-edit updatebtn" data-toggle="modal" data-target="#updateModal">
-
-              </button></td>
-            <td><button type="button" class="btn btn-outline-danger far fa-trash-alt deletebtn" data-toggle="modal" data-target="#deleteModal">
-
-              </button></td>
+            <th scope="col" style="display:none;">#ID</th>
+            <th scope="col">DESCRIPCIÓN</th>
+            <th scope="col">RANGO IP</th>
+            <th scope="col">MAC</th>
+            <th scope="col">SEDE</th>
+            <th scope="col">FECHA DE CREACÍON</th>
+            <th scope="col" style="display:none;"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
+        </thead>
+        <tbody>
+          <?php include_once("queryPdo.php"); ?>
+          <?php foreach ($machines as $machine) { ?>
 
-        <?php } ?>
-      </tbody>
-    </table>
+            <tr>
+              <td class="text-left" id="id_machine" style="display:none;"><?php echo $machine->id_machine ?></td>
+              <td><?php echo $machine->machine_detail ?></td>
+              <td><?php echo $machine->ip_range ?></td>
+              <td><?php echo $machine->mac_address ?></td>
+              <td><?php echo $machine->campus ?></td>
+              <td><?php echo $machine->create_date ?></td>
+              <td style="font-size: 10px; display:none;"><?php echo $machine->observ ?></td>
+              <td><button type="button" name="view" class="btn btn-outline-info fas fa-desktop viewbtn" data-toggle="modal" data-target="#viewModal">
 
+                </button></td>
+              <td><button type="button" name="update" class="btn btn-outline-success fas fa-edit updatebtn" data-toggle="modal" data-target="#updateModal">
+
+                </button></td>
+              <td><button type="button" class="btn btn-outline-danger far fa-trash-alt deletebtn" data-toggle="modal" data-target="#deleteModal">
+
+                </button></td>
+            </tr>
+
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!--font-family: scandia-web,sans-serif;-->
@@ -409,9 +410,6 @@
 
   <div class="card-footer text-muted">
     <p style="font-family: scandia-web,sans-serif;">Powered by PHP</p>
-    <p style="font-family: scandia-web,sans-serif;">
-
-
   </div>
 
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
