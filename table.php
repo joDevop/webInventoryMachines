@@ -11,12 +11,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   <script src="https://kit.fontawesome.com/bb00059a3e.js" crossorigin="anonymous"></script>
-  <script language="javascript" type="text/javascript">window.history.forward();</script>
-  <link rel="stylesheet" type="text/css" href="css/styles_session.css"/>
+  <script language="javascript" type="text/javascript">
+    window.history.forward();
+  </script>
+  <link rel="stylesheet" type="text/css" href="css/styles_session.css" />
 
 
   <title>Inventario de Maquinas | Listado</title>
-  <!--<link rel="icon" type="image/png" href="deposit_img\pc.png" />-->
+  <link rel="icon" type="image/svg" href="img\ic_seo-and-web.svg" />
 </head>
 
 <body>
@@ -37,10 +39,10 @@
         </li>
 
         <div class="php_session">
-          <?php 
-    include_once("accessLogin.php");
-    if (isset($_SESSION["email"])) {
-      echo '
+          <?php
+          include_once("accessLogin.php");
+          if (isset($_SESSION["email"])) {
+            echo '
       <div class="btn-group">
         <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="far fa-user-circle"></i>
@@ -53,19 +55,19 @@
           <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
       </div>';
-      echo '<label>Welcome | '.$_SESSION["email"].'</label>';
-    }else{
-      header("location:index.php");
-    }   
-    ?>
-          </div>
+            echo '<label>Welcome | ' . $_SESSION["email"] . '</label>';
+          } else {
+            header("location:index.php");
+          }
+          ?>
+        </div>
 
       </ul>
     </div>
   </nav>
 
   <div class="container">
-  <!--<div style="width: 1750px; padding-right:15px; padding-left:150px">-->
+    <!--<div style="width: 1750px; padding-right:15px; padding-left:150px">-->
     <br>
     <div class="jumbotron jumbotron-fluid">
       <div class="container text-center">
@@ -238,46 +240,46 @@
             <input type="hidden" name="id" id="view_id">
 
             <div><label>Tipo:</label>
-            <div class="input-group">     
-              <div class="input-group-prepend">
+              <div class="input-group">
+                <div class="input-group-prepend">
                   <span class="input-group-text fas fa-desktop" id="basic-addon1"></span>
                 </div>
-              <input class="form-control" id="type" name="type" type="text" disabled>
+                <input class="form-control" id="type" name="type" type="text" disabled>
+              </div>
             </div>
-            </div>
-        </br>
+            </br>
 
             <div><label>Rango IP:</label>
-            <div class="input-group">
+              <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
                 </div>
-              <input class="form-control" id="ip" name="ip" type="text" disabled>
-            </div>
+                <input class="form-control" id="ip" name="ip" type="text" disabled>
+              </div>
             </div>
             </br>
 
             <div><label>Direccion Mac:</label>
-            <div class="input-group">
-            <div class="input-group-prepend">
+              <div class="input-group">
+                <div class="input-group-prepend">
                   <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
                 </div>
-              <input class="form-control" id="mac" name="mac" type="text" disabled>
+                <input class="form-control" id="mac" name="mac" type="text" disabled>
+              </div>
             </div>
-            </div>
-        </br>
+            </br>
 
             <div><label>Sede:</label>
-            <div class="input-group">
-            <div class="input-group-prepend">
+              <div class="input-group">
+                <div class="input-group-prepend">
                   <span class="input-group-text fas fa-building" id="basic-addon1"></span>
                 </div>
-              <input class="form-control" id="campus" name="campus" type="text" disabled>
+                <input class="form-control" id="campus" name="campus" type="text" disabled>
+              </div>
             </div>
-            </div>
-        </br>
+            </br>
 
-        <div class="input-group">
+            <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">Observacion:</span>
               </div>
@@ -351,7 +353,7 @@
             <div class="form-group">
               <label for="">Sede:</label>
               <select class="form-control" id="campus_update" name="campus">
-              <option>VIVA 1A IPS SURA 85</option>
+                <option>VIVA 1A IPS SURA 85</option>
                 <option>VIVA 1A IPS COUNTRY</option>
                 <option>VIVA 1A IPS SOLEDAD</option>
                 <option>VIVA 1A IPS CALLE 30</option>

@@ -4,7 +4,7 @@ include_once("connectionPdoDbAndroid.php");
 if(isset($_POST["login"])){
     if(empty($_POST["email"]) || empty($_POST["password"])){
 
-        $_POST["password"] = md5($_POST("email"));
+        $_POST["password"] = md5($_POST("password"));
 
         $message = '<label>All fields are required</label>';
     }else{
@@ -29,5 +29,3 @@ if(isset($_POST["login"])){
 
         //print json_encode($_SESSION);
         //$conexion=null;
-
-?>
