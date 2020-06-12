@@ -68,15 +68,10 @@
 
   <div class="container">
     <!--<div style="width: 1750px; padding-right:15px; padding-left:150px">-->
-    <br>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container text-center">
-        <h1 class="display-4">Listado de Maquinas</h1>
-        <!--<img src="deposit_img\pc.png" alt="ordenador_personal.png" width="120" height="120">-->
-      </div>
-    </div>
-    <div>
+    <br />
+    <br />
 
+    <div>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#insertModal">
         + Nueva Maquina
@@ -406,10 +401,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="card-footer text-muted">
-    <p style="font-family: scandia-web,sans-serif;">Powered by PHP</p>
   </div>
 
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
