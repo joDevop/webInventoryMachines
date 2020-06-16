@@ -141,55 +141,54 @@
           <!--form-->
           <form action="insertPdo.php" method="POST">
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupFileAddon01">Cargar Imagen</span>
-              </div>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" name="archivo" id="" aria-describedby="inputGroupFileAddon01">
-                <label class="custom-file-label" for="inputGroupFile01"></label>
-              </div>
-            </div>
-            <div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped" id="barra_estado" role="progressbar" width="10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
-              </div>
-            </div>
-            </br>
-
-            <div class="form-group">
-              <label for="">Tipo:</label>
-              <select class="form-control" id="" name="type">
+            <div class="mb-3">
+             <div class="input-group">
+               <div class="input-group-prepend">
+                <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
+               </div>
+               <select class="custom-select" name="type" id="validatedInputGroupSelect" required>
+               <option value="">Seleccione el tipo...</option>
                 <option>PC</option>
                 <option>ATRIL</option>
                 <option>LAPTOP</option>
                 <option>TV RASBPEBERRY</option>
-              </select>
-            </div>
-
-            <div><label>Rango IP:</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
-                </div>
-                <input type="text" class="form-control" name="ip" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1">
+               </select>
               </div>
-            </div>
-            </br>
+           </div>
 
-            <div><label>Direccion Mac:</label>
+            <div class="form-row">
+
+             <div class="col-md-6 mb-3">
+              <label for="">Dirección Ip:</label>
               <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
-                </div>
-                <input type="text" class="form-control" name="mac" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-            </div>
-            </br>
+               <div class="input-group-prepend">
+                <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
+               </div>
+             <input type="text" class="form-control" name="ip" placeholder="000.000.000.000" 
+             aria-label="Username" aria-describedby="basic-addon1" required>
+               </div>
+             </div>
 
-            <div class="form-group">
-              <label for="">Sede:</label>
-              <select class="form-control" id="" name="campus">
+             <div class="col-md-6 mb-3">
+              <label for="">Dirección Mac:</label>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
+               </div>
+                <input type="text" class="form-control" name="mac" placeholder="00:00:00:00:00" 
+                aria-label="Username" aria-describedby="basic-addon2" required>
+               </div>
+              </div>
+
+            </div>
+
+            <div class="mb-3">
+             <div class="input-group">
+               <div class="input-group-prepend">
+                <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
+               </div>
+               <select class="custom-select" name="campus" id="validatedInputGroupSelect" required>
+               <option value="">Seleccione sede...</option>
                 <option>VIVA 1A IPS SURA 85</option>
                 <option>VIVA 1A IPS COUNTRY</option>
                 <option>VIVA 1A IPS SOLEDAD</option>
@@ -198,9 +197,9 @@
                 <option>VIVA 1A IPS CARRERA 16</option>
                 <option>VIVA 1A IPS CASA MATRIZ</option>
                 <option>VIVA 1A IPS SURA SAN JOSE</option>
-              </select>
-            </div>
-            <br />
+               </select>
+              </div>
+           </div>
 
             <div class="input-group">
               <div class="input-group-prepend">
