@@ -101,7 +101,7 @@
 
             <tr>
               <td class="text-left" id="id_machine" style="display:none;"><?php echo $machine->id_machine ?></td>
-              <td><?php echo $machine->machine_detail ?></td>
+              <td><?php echo $machine->type_machine ?></td>
               <td><?php echo $machine->ip_range ?></td>
               <td><?php echo $machine->mac_address ?></td>
               <td><?php echo $machine->campus ?></td>

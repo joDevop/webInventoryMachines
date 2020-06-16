@@ -52,7 +52,7 @@ include_once("accessLogin.php");
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-key"></i></div>
                     </div>
-                    <input type="password" class="form-control" id="" name="password" aria-label="Username" aria-describedby="basic-addon1" value=".\jortega">
+                    <input type="password" class="form-control" id="" name="password" aria-label="Username" aria-describedby="basic-addon1" value=".jortega">
                 </div>
 
                 <input type="submit" name="login" class="btn btn-success mtop16" value="Acceder" />

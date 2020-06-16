@@ -5,7 +5,7 @@ include_once("connectionPdoDbAndroid.php");
 $id = $_POST['id'];
 
 
-$registro = $conexion->prepare("DELETE FROM berry_atril_machines WHERE id_machine=:id");
+$registro = $conexion->prepare("DELETE FROM table_machines WHERE id_machine=:id");
 
 $registro->bindparam(':id', $id);
 

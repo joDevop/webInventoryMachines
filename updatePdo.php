@@ -9,7 +9,7 @@ $mac = $_POST['mac'];
 $campus = $_POST['campus'];
 $observa = $_POST['observation'];
 
-$registro = $conexion->prepare("UPDATE berry_atril_machines SET machine_detail=:type_update,ip_range=:ip_update,mac_address=:mac_update,campus=:campus_update,observ=:observation_update WHERE id_machine=:id_update");
+$registro = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,ip_range=:ip_update,mac_address=:mac_update,campus=:campus_update,observ=:observation_update WHERE id_machine=:id_update");
 //*id
 $registro->bindparam(':id_update', $id);
 $registro->bindparam(':type_update', $type);

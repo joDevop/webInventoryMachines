@@ -11,7 +11,7 @@ $observa = $_POST['observation'];
 date_default_timezone_set('America/Bogota');
 $actual_date = date("Y-m-d H:i:s");
 
-$registro = $conexion->prepare("INSERT INTO berry_atril_machines(machine_detail,ip_range,mac_address,campus,create_date,observ) 
+$registro = $conexion->prepare("INSERT INTO table_machines(type_machine,ip_range,mac_address,campus,create_date,observ) 
         VALUES (:type,:ip,:mac,:campus,:actual_date,:observation);");
 
 $registro->bindparam(':type', $type);

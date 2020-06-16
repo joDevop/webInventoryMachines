@@ -5,7 +5,7 @@ $username = "root";
 $password = "";
 
 try {
-    $conexion = new PDO("mysql:host=$servername;dbname=bd_inventory_machines_viva1a", $username, $password);
+    $conexion = new PDO("mysql:host=$servername;dbname=db_inventor_machines", $username, $password);
 
     // set the PDO error mode to exception
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
