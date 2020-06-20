@@ -44,7 +44,7 @@ include_once("accessLogin.php");
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                     </div>
-                    <input type="email" class="form-control" id="" name="email" aria-label="Username" aria-describedby="basic-addon1" value="jortega@viva1a.com.co">
+                    <input type="email" class="form-control" id="" name="email" aria-label="Username" aria-describedby="basic-addon1" value="jortega@viva1a.com.co" required>
                 </div>
 
                 <label for="password" class="mtop16">Password:</label>

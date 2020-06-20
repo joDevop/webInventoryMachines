@@ -22,10 +22,11 @@ if(isset($_POST["login"])){
             $_SESSION["email"] = $_POST["email"];
             header("location:table.php");
         }else{
-            $message = '<label>Wrong Data</label>';
+            $message = '<label>Email o contraseña son erroneos!</label>';
         }
     }
 }
 
         //print json_encode($_SESSION);
         //$conexion=null;
+        ?>
