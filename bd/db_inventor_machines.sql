@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-06-2020 a las 16:05:11
+-- Tiempo de generación: 21-06-2020 a las 01:09:02
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.28
 
@@ -74,7 +74,8 @@ INSERT INTO `table_machines` (`id_machine`, `type_machine`, `ip_range`, `mac_add
 (27, 'TV RASPBERRY PI', '192.168.16.26', '', 'VIVA 1A IPS CARRERA 16', '2020-06-12 21:11:06', NULL, NULL, NULL),
 (28, 'TV RASPBERRY PI', '192.168.16.28', '', 'VIVA 1A IPS CARRERA 16', '2020-06-12 21:11:06', NULL, NULL, NULL),
 (29, 'ATRIL', '192.168.16.25', 'FC:3F:DB:0A:D2', 'VIVA 1A IPS CARRERA 16', '2020-06-12 21:11:06', NULL, NULL, NULL),
-(30, 'ATRIL', '192.168.16.30', '6C:4B:90:67:9F', 'VIVA 1A IPS CARRERA 16', '2020-06-12 21:11:06', NULL, NULL, NULL);
+(30, 'ATRIL', '192.168.16.30', '6C:4B:90:67:9F', 'VIVA 1A IPS CARRERA 16', '2020-06-12 21:11:06', NULL, NULL, NULL),
+(35, 'PC', '192.168.71.240', '98:EE:CB:25:1F', 'VIVA 1A IPS MACARENA', '2020-06-16 19:33:34', NULL, NULL, 'EQUIPO DE TECNICO EN SEDE\r\n');
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,7 @@ ALTER TABLE `table_user_tec`
 -- AUTO_INCREMENT de la tabla `table_machines`
 --
 ALTER TABLE `table_machines`
-  MODIFY `id_machine` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_machine` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `table_user_tec`
