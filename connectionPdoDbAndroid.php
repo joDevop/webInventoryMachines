@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -22,6 +22,3 @@ return $conexion;
   //  {
     //echo "<script>alert('Connection failed: ')</script>" . $e->getMessage();
     //}
-
-?>
-
