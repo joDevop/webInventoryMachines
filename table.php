@@ -15,6 +15,7 @@
     window.history.forward();
   </script>
   <link rel="stylesheet" type="text/css" href="css/styles_session.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.sidebar.css" />
 
 
   <title>Inventario de Maquinas | Listado</title>
@@ -23,58 +24,67 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow">
-    <a href="#" class="navbar-brand">Inventario de Maquinas</a>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="https://appinventorymachinesviva1a.000webhostapp.com/WEB_FORM/LoadImageMachines.html" class="nav-link">Registrar con Imagenes</a>
-        </li>
-        <li class="nav-link disabled">|</li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Listado de Atril & Raspberry</a>
-        </li>
+  <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-lg"
+      id="sideNav">
+      <a class="navbar-brand js-scroll-trigger"
+      ><span class="d-block d-lg-none">Inventario</span>
+        <span class="d-none d-lg-block">
+          <img
+            class="img-fluid img-profile rounded-circle mx-auto mb-2"
+            src="img/ic_seo-and-web.svg"
+            alt="" />
+            </span>
+        </a>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#"><i class="fas fa-database"></i><span> Dashboard</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#experience"
+              ><i class="fas fa-cog"></i><span> Settings</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#education"
+              ><i class="fas fa-sign-out-alt"></i><span> Logout</span></a
+            >
+          <!--</li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#interests"
+              >Interests</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+          </li>-->
+        </ul>
+      </div>
+    </nav>
 
-        <div class="php_session">
-          <?php
-          include_once("accessLogin.php");
-          if (isset($_SESSION["email"])) {
-            echo '
-      <div class="btn-group">
-        <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="far fa-user-circle"></i>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#"></a>
-          <a class="dropdown-item" href="#"></a>
-          <a class="dropdown-item" href="#"></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="logout.php">Logout</a>
-        </div>
-      </div>';
-            echo '<label>Welcome | ' . $_SESSION["email"] . '</label>';
-          } else {
-            header("location:index.php");
-          }
-          ?>
-        </div>
-
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container">
-    <!--<div style="width: 1750px; padding-right:15px; padding-left:150px">-->
+  <div class="container-md">
     <br />
     <br />
 
     <div>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#insertModal">
-        + Nueva Maquina
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#insertModal">
+        <i class="fas fa-plus-square"></i>
       </button>
     </div>
     <br>
@@ -107,13 +117,12 @@
               <td><?php echo $machine->campus ?></td>
               <td><?php echo $machine->create_date ?></td>
               <td style="font-size: 10px; display:none;"><?php echo $machine->observ ?></td>
-              <td><button type="button" name="view" class="btn btn-outline-info fas fa-desktop viewbtn" data-toggle="modal" data-target="#viewModal">
+              <td><button type="button" name="view" class="btn btn-info fas fa-eye viewbtn" data-toggle="modal" data-target="#viewModal">
+                </button></td>
+              <td><button type="button" name="update" class="btn btn-success fas fa-edit updatebtn" data-toggle="modal" data-target="#updateModal">
 
                 </button></td>
-              <td><button type="button" name="update" class="btn btn-outline-success fas fa-edit updatebtn" data-toggle="modal" data-target="#updateModal">
-
-                </button></td>
-              <td><button type="button" class="btn btn-outline-danger far fa-trash-alt deletebtn" data-toggle="modal" data-target="#deleteModal">
+              <td><button type="button" class="btn btn-danger fas fa-trash-alt deletebtn" data-toggle="modal" data-target="#deleteModal">
 
                 </button></td>
             </tr>
@@ -295,7 +304,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar información</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -404,7 +413,5 @@
 
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
   <script src="js/script.js"></script>
-
-</body>
-
+ </body>
 </html>
