@@ -19,66 +19,73 @@
 
 
   <title>Inventario de Maquinas | Listado</title>
-  <link rel="icon" type="image/svg" href="img\ic_seo-and-web.svg" />
+  <link rel="icon" type="image/svg" href="img/svg/ic_seo-and-web.svg" />
 </head>
 
 <body>
 
-  <nav
-      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-lg"
-      id="sideNav">
-      <a class="navbar-brand js-scroll-trigger"
-      ><span class="d-block d-lg-none">Inventario</span>
-        <span class="d-none d-lg-block">
-          <img
-            class="img-fluid img-profile rounded-circle mx-auto mb-2"
-            src="img/ic_seo-and-web.svg"
-            alt="" />
-            </span>
-        </a>
-        <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#"><i class="fas fa-database"></i><span> Dashboard</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#experience"
-              ><i class="fas fa-cog"></i><span> Settings</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#education"
-              ><i class="fas fa-sign-out-alt"></i><span> Logout</span></a
-            >
-          <!--</li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#interests"
-              >Interests</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-          </li>-->
-        </ul>
+  <div id="sidemenu" class="menu-collapsed">
+    <div id="header">
+      <div id="title"><span>Inventor Machine</span></div>
+      <div id="menu-btn">
+        <div class="btn-hamburger"></div>
+        <div class="btn-hamburger"></div>
+        <div class="btn-hamburger"></div>
       </div>
-    </nav>
+    </div>
 
-  <div class="container-md">
-    <br />
+    <div id="profile">
+      <div id="photo">
+        <img src="img/svg/ic_seo-and-web.svg" alt="" />
+      </div>
+
+      <div id="name"><span>Admin</span></div>
+    </div>
+
+    <div id="menu-items">
+      <div class="item">
+        <a href="#">
+          <div class="icon">
+            <img src="img/svg/dashboard.svg" alt="" />
+          </div>
+          <div class="title"><span>Dashboard</span></div>
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="#">
+          <div class="icon">
+            <img src="img/svg/server.svg" alt="" />
+          </div>
+          <div class="title"><span>Servers</span></div>
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="#">
+          <div class="icon">
+            <img src="img/svg/old-computer.svg" alt="" />
+          </div>
+          <div class="title"><span>Machines</span></div>
+        </a>
+      </div>
+
+      <div class="item separator"></div>
+
+      <div class="item">
+        <a href="#">
+          <div class="icon">
+            <img src="img/svg/logout.svg" alt="" />
+          </div>
+          <div class="title"><span>Logout</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-xl">
+
     <br />
 
     <div>
@@ -89,7 +96,7 @@
     </div>
     <br>
 
-    <div class="table-responsive" style="margin-bottom: 20px;">
+    <div id="table-light" class="table-responsive" style="margin-bottom: 20px;">
       <table id="datatable" class="table table-striped table-bordered display text-center">
         <thead class="table-active">
           <tr>
@@ -131,281 +138,279 @@
         </tbody>
       </table>
     </div>
-  </div>
 
-  <!--font-family: scandia-web,sans-serif;-->
-  <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
+    <!--font-family: scandia-web,sans-serif;-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
 
-  <!-- Modal Insert-->
-  <div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Registrar nueva maquina</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!--form-->
-          <form action="insertPdo.php" method="POST">
+    <!-- Modal Insert-->
+    <div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Registrar nueva maquina</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!--form-->
+            <form action="insertPdo.php" method="POST">
 
-            <div class="mb-3">
-             <div class="input-group">
-               <div class="input-group-prepend">
-                <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
-               </div>
-               <select class="custom-select" name="type" id="validatedInputGroupSelect" required>
-               <option value="">Seleccione el tipo...</option>
-                <option>PC</option>
-                <option>ATRIL</option>
-                <option>LAPTOP</option>
-                <option>TV RASBPEBERRY</option>
-               </select>
-              </div>
-           </div>
-
-            <div class="form-row">
-
-             <div class="col-md-6 mb-3">
-              <label for="">Dirección Ip:</label>
-              <div class="input-group">
-               <div class="input-group-prepend">
-                <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
-               </div>
-             <input type="text" class="form-control" name="ip" placeholder="000.000.000.000" 
-             aria-label="Username" aria-describedby="basic-addon1" required>
-               </div>
-             </div>
-
-             <div class="col-md-6 mb-3">
-              <label for="">Dirección Mac:</label>
-              <div class="input-group">
+              <div class="mb-3">
+                <div class="input-group">
                   <div class="input-group-prepend">
-                <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
-               </div>
-                <input type="text" class="form-control" name="mac" placeholder="00:00:00:00:00" 
-                aria-label="Username" aria-describedby="basic-addon2" required>
-               </div>
+                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
+                  </div>
+                  <select class="custom-select" name="type" id="validatedInputGroupSelect" required>
+                    <option value="">Seleccione el tipo...</option>
+                    <option>PC</option>
+                    <option>ATRIL</option>
+                    <option>LAPTOP</option>
+                    <option>TV RASBPEBERRY</option>
+                  </select>
+                </div>
               </div>
 
-            </div>
+              <div class="form-row">
 
-            <div class="mb-3">
-             <div class="input-group">
-               <div class="input-group-prepend">
-                <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
-               </div>
-               <select class="custom-select" name="campus" id="validatedInputGroupSelect" required>
-               <option value="">Seleccione sede...</option>
-                <option>VIVA 1A IPS SURA 85</option>
-                <option>VIVA 1A IPS COUNTRY</option>
-                <option>VIVA 1A IPS SOLEDAD</option>
-                <option>VIVA 1A IPS CALLE 30</option>
-                <option>VIVA 1A IPS MACARENA</option>
-                <option>VIVA 1A IPS CARRERA 16</option>
-                <option>VIVA 1A IPS CASA MATRIZ</option>
-                <option>VIVA 1A IPS SURA SAN JOSE</option>
-               </select>
+                <div class="col-md-6 mb-3">
+                  <label for="">Dirección Ip:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="ip" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Dirección Mac:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="mac" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon2" required>
+                  </div>
+                </div>
+
               </div>
-           </div>
 
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Observacion:</span>
+              <div class="mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
+                  </div>
+                  <select class="custom-select" name="campus" id="validatedInputGroupSelect" required>
+                    <option value="">Seleccione sede...</option>
+                    <option>VIVA 1A IPS SURA 85</option>
+                    <option>VIVA 1A IPS COUNTRY</option>
+                    <option>VIVA 1A IPS SOLEDAD</option>
+                    <option>VIVA 1A IPS CALLE 30</option>
+                    <option>VIVA 1A IPS MACARENA</option>
+                    <option>VIVA 1A IPS CARRERA 16</option>
+                    <option>VIVA 1A IPS CASA MATRIZ</option>
+                    <option>VIVA 1A IPS SURA SAN JOSE</option>
+                  </select>
+                </div>
               </div>
-              <textarea class="form-control" id="" name="observation" aria-label="With textarea"></textarea>
-            </div>
 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
-          </form>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!--Modal View-->
-  <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Información detallada</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <input type="hidden" name="id" id="view_id">
-
-            <div><label>Tipo:</label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-desktop" id="basic-addon1"></span>
+                  <span class="input-group-text">Observacion:</span>
                 </div>
-                <input class="form-control" id="type" name="type" type="text" disabled>
+                <textarea class="form-control" id="" name="observation" aria-label="With textarea"></textarea>
               </div>
-            </div>
-            </br>
 
-            <div><label>Rango IP:</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
-                </div>
-                <input class="form-control" id="ip" name="ip" type="text" disabled>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
               </div>
-            </div>
-            </br>
+            </form>
 
-            <div><label>Direccion Mac:</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
-                </div>
-                <input class="form-control" id="mac" name="mac" type="text" disabled>
-              </div>
-            </div>
-            </br>
+          </div>
 
-            <div><label>Sede:</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-building" id="basic-addon1"></span>
-                </div>
-                <input class="form-control" id="campus" name="campus" type="text" disabled>
-              </div>
-            </div>
-            </br>
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Observacion:</span>
-              </div>
-              <textarea class="form-control" id="observation" name="observation" aria-label="With textarea" disabled></textarea>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modal Update-->
-  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Actualizar información</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!--form-->
-          <form action="updatePdo.php" method="POST">
-            <input type="hidden" name="id" id="update_id">
+    <!--Modal View-->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Información detallada</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input type="hidden" name="id" id="view_id">
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupFileAddon01">Cargar Imagen</span>
+              <div><label>Tipo:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text fas fa-desktop" id="basic-addon1"></span>
+                  </div>
+                  <input class="form-control" id="type" name="type" type="text" disabled>
+                </div>
               </div>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" name="imagen" id="" aria-describedby="inputGroupFileAddon01">
-                <label class="custom-file-label" for="inputGroupFile01"></label>
+              </br>
+
+              <div><label>Rango IP:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
+                  </div>
+                  <input class="form-control" id="ip" name="ip" type="text" disabled>
+                </div>
               </div>
-            </div>
+              </br>
 
-            <div class="form-group">
-              <label for="">Tipo:</label>
-              <select class="form-control" id="type_update" name="type">
-                <option>PC</option>
-                <option>ATRIL</option>
-                <option>LAPTOP</option>
-                <option>TV RASBPEBERRY</option>
-              </select>
-            </div>
+              <div><label>Direccion Mac:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
+                  </div>
+                  <input class="form-control" id="mac" name="mac" type="text" disabled>
+                </div>
+              </div>
+              </br>
 
-            <div><label>Rango IP:</label>
+              <div><label>Sede:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text fas fa-building" id="basic-addon1"></span>
+                  </div>
+                  <input class="form-control" id="campus" name="campus" type="text" disabled>
+                </div>
+              </div>
+              </br>
+
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
+                  <span class="input-group-text">Observacion:</span>
                 </div>
-                <input type="text" class="form-control" id="ip_update" name="ip" aria-label="Username" aria-describedby="basic-addon1">
+                <textarea class="form-control" id="observation" name="observation" aria-label="With textarea" disabled></textarea>
               </div>
-            </div>
-            </br>
 
-            <div><label>Direccion Mac:</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
-                </div>
-                <input type="text" class="form-control" id="mac_update" name="mac" aria-label="Username" aria-describedby="basic-addon1">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
               </div>
-            </div>
-            </br>
-
-            <div class="form-group">
-              <label for="">Sede:</label>
-              <select class="form-control" id="campus_update" name="campus">
-                <option>VIVA 1A IPS SURA 85</option>
-                <option>VIVA 1A IPS COUNTRY</option>
-                <option>VIVA 1A IPS SOLEDAD</option>
-                <option>VIVA 1A IPS CALLE 30</option>
-                <option>VIVA 1A IPS MACARENA</option>
-                <option>VIVA 1A IPS CARRERA 16</option>
-                <option>VIVA 1A IPS CASA MATRIZ</option>
-                <option>VIVA 1A IPS SURA SAN JOSE</option>
-              </select>
-            </div>
-            <br />
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Observacion:</span>
-              </div>
-              <textarea class="form-control" id="observation_update" name="observation" aria-label="With textarea"></textarea>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-success">Guardar cambios</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modal Delete-->
-  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <!-- Modal Update-->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Actualizar información</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!--form-->
+            <form action="updatePdo.php" method="POST">
+              <input type="hidden" name="id" id="update_id">
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupFileAddon01">Cargar Imagen</span>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="imagen" id="" aria-describedby="inputGroupFileAddon01">
+                  <label class="custom-file-label" for="inputGroupFile01"></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="">Tipo:</label>
+                <select class="form-control" id="type_update" name="type">
+                  <option>PC</option>
+                  <option>ATRIL</option>
+                  <option>LAPTOP</option>
+                  <option>TV RASBPEBERRY</option>
+                </select>
+              </div>
+
+              <div><label>Rango IP:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
+                  </div>
+                  <input type="text" class="form-control" id="ip_update" name="ip" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              </br>
+
+              <div><label>Direccion Mac:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
+                  </div>
+                  <input type="text" class="form-control" id="mac_update" name="mac" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              </br>
+
+              <div class="form-group">
+                <label for="">Sede:</label>
+                <select class="form-control" id="campus_update" name="campus">
+                  <option>VIVA 1A IPS SURA 85</option>
+                  <option>VIVA 1A IPS COUNTRY</option>
+                  <option>VIVA 1A IPS SOLEDAD</option>
+                  <option>VIVA 1A IPS CALLE 30</option>
+                  <option>VIVA 1A IPS MACARENA</option>
+                  <option>VIVA 1A IPS CARRERA 16</option>
+                  <option>VIVA 1A IPS CASA MATRIZ</option>
+                  <option>VIVA 1A IPS SURA SAN JOSE</option>
+                </select>
+              </div>
+              <br />
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Observacion:</span>
+                </div>
+                <textarea class="form-control" id="observation_update" name="observation" aria-label="With textarea"></textarea>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-success">Guardar cambios</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="modal-body">
-          <h5>Deseas eliminar este registro?</h5>
-          <!--form-->
-          <form action="deletePdo.php" method="POST">
-            <input type="hidden" name="id" id="delete_id">
+      </div>
+    </div>
 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-danger">Eliminar</button>
-            </div>
-          </form>
+    <!-- Modal Delete-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h5>Deseas eliminar este registro?</h5>
+            <!--form-->
+            <form action="deletePdo.php" method="POST">
+              <input type="hidden" name="id" id="delete_id">
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -413,5 +418,17 @@
 
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
   <script src="js/script.js"></script>
- </body>
+  <script>
+    const btn = document.querySelector("#menu-btn");
+    const menu = document.querySelector("#sidemenu");
+    btn.addEventListener("click", (e) => {
+      menu.classList.toggle("menu-expanded");
+      menu.classList.toggle("menu-collapsed");
+      document
+        .querySelector("body")
+        .classList.toggle("body-expanded");
+    });
+  </script>
+</body>
+
 </html>
