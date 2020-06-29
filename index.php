@@ -1,9 +1,3 @@
-<?php
-
-include_once("accessLogin.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,16 +23,8 @@ include_once("accessLogin.php");
             <img src="img/ic_seo-and-web.svg">
         </div>
 
-        <?php
-
-        if (isset($message)) {
-            echo '<div class="text-center mtop16"><label class="alert alert-danger text-center">' . $message . '</label></div>';
-        }
-
-        ?>
-
         <div class="inside">
-            <form method="post">
+            <form action="login.php" method="POST">
                 <label for="email">Correo Electrónico:</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -52,7 +38,7 @@ include_once("accessLogin.php");
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-key"></i></div>
                     </div>
-                    <input type="password" class="form-control" id="" name="password" aria-label="Username" aria-describedby="basic-addon1" value=".jortega">
+                    <input type="password" class="form-control" id="" name="password" aria-label="Username" aria-describedby="basic-addon1" value=".jortega" required>
                 </div>
 
                 <input type="submit" name="login" class="btn btn-success mtop16" value="Acceder" />
