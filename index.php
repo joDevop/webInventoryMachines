@@ -13,14 +13,14 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
     <title>Inventario de Maquinas | Login</title>
-    <link rel="icon" type="image/svg" href="img\ic_seo-and-web.svg" />
+    <link rel="icon" type="image/svg" href="img/svg/ic_seo-and-web.svg" />
 </head>
 
 <body>
 
     <div class="box box_login shadow">
         <div class="header">
-            <img src="img/ic_seo-and-web.svg">
+            <img src="img/svg/ic_seo-and-web.svg">
         </div>
 
         <div class="inside">

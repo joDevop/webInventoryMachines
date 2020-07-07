@@ -18,10 +18,6 @@ try {
 
 return $conexion;
 
-//catch(PDOException $e)
-  //  {
-    //echo "<script>alert('Connection failed: ')</script>" . $e->getMessage();
-    //}
 
 ?>
 

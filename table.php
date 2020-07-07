@@ -70,6 +70,15 @@
         </a>
       </div>
 
+      <div class="item">
+        <a href="http://localhost//appInventoryMachinesViva1a/web/index.html" target="_blank">
+          <div class="icon">
+            <img src="img/svg/add.svg" alt="" />
+          </div>
+          <div class="title"><span>Register with images</span></div>
+        </a>
+      </div>
+
       <div class="item separator"></div>
 
       <div class="item">
@@ -166,7 +175,7 @@
                     <option>PC</option>
                     <option>ATRIL</option>
                     <option>LAPTOP</option>
-                    <option>TV RASBPEBERRY</option>
+                    <option>TV RASBPEBERRY PI</option>
                   </select>
                 </div>
               </div>
@@ -334,7 +343,7 @@
                   <option>PC</option>
                   <option>ATRIL</option>
                   <option>LAPTOP</option>
-                  <option>TV RASBPEBERRY</option>
+                  <option>TV RASBPEBERRY PI</option>
                 </select>
               </div>
 
