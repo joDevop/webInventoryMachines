@@ -26,7 +26,7 @@
 
   <div id="sidemenu" class="menu-collapsed">
     <div id="header">
-      <div id="title"><span>Inventor Machine</span></div>
+      <div id="title"><span>Inventory Machines</span></div>
       <div id="menu-btn">
         <div class="btn-hamburger"></div>
         <div class="btn-hamburger"></div>
@@ -64,7 +64,7 @@
       <div class="item">
         <a href="#">
           <div class="icon">
-            <img src="img/svg/old-computer.svg" alt="" />
+            <img src="img/png/pc.png" alt="" />
           </div>
           <div class="title"><span>Machines</span></div>
         </a>
