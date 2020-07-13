@@ -1,5 +1,5 @@
 <?php 
-include_once("connectionPdoDbAndroid.php");
+include_once("./config/connectionDb.php");
 
 $data = $_POST;
 

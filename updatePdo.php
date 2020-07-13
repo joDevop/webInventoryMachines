@@ -1,6 +1,6 @@
 <?php
+include_once("./config/connectionDb.php");
 
-include_once("connectionPdoDbAndroid.php");
 //*name
 $id = $_POST['id'];
 $type = $_POST['type'];

@@ -1,6 +1,6 @@
 <?php
 
-include_once("connectionPdoDbAndroid.php");
+include_once("./config/connectionDb.php");
 
 $type = $_POST['type'];
 $ip = $_POST['ip'];
