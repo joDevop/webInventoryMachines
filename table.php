@@ -1,3 +1,7 @@
+<?php include("./config/connectionDb.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,8 +22,8 @@
   <link rel="stylesheet" type="text/css" href="css/styles.sidebar.css" />
 
 
-  <title>Inventario de Maquinas | Listado</title>
-  <link rel="icon" type="image/svg" href="img/svg/ic_seo-and-web.svg" />
+  <title>Inventario | Lista</title>
+  <link rel="icon" type="image/svg" href="img/svg/server-storage.svg" />
 </head>
 
 <body>
@@ -36,10 +40,14 @@
 
     <div id="profile">
       <div id="photo">
-        <img src="img/svg/ic_seo-and-web.svg" alt="" />
+        <img src="img/svg/admin.svg" alt=""/>
       </div>
+      <div id="name"><span> <?php if (empty($_SESSION['email_tec'])){
+        die ('You have to be logged in to visit this page');
+      }
+        echo $_SESSION['name_tec'];?> <?php echo $_SESSION['last_name_tec'];?> </span></div>
 
-      <div id="name"><span>Admin</span></div>
+      <div id="user-profile"><span><?php echo $_SESSION['position_job'];?> | <?php echo $_SESSION['campus_tec'];?> </span></div>
     </div>
 
     <div id="menu-items">
@@ -82,7 +90,7 @@
       <div class="item separator"></div>
 
       <div class="item">
-        <a href="#">
+        <a href="logout.php">
           <div class="icon">
             <img src="img/svg/logout.svg" alt="" />
           </div>

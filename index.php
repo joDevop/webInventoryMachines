@@ -1,3 +1,5 @@
+<?php include("./config/connectionDb.php") ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,8 +14,8 @@
     <script src="https://kit.fontawesome.com/bb00059a3e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
-    <title>Inventario de Maquinas | Login</title>
-    <link rel="icon" type="image/svg" href="img/svg/ic_seo-and-web.svg" />
+    <title>Inventario | Login</title>
+    <link rel="icon" type="image/svg" href="img/svg/server-storage.svg" />
 </head>
 
 <body>
@@ -22,6 +24,17 @@
         <div class="header">
             <img src="img/svg/ic_seo-and-web.svg">
         </div>
+        
+        <?php if(isset($_SESSION['message'])) {?>
+        <div class="mtop16 alert alert-danger alert-dismissible fade show text-center">
+            <?= $_SESSION['message'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php session_unset(); }?>
+
+        <!--class="alert alert-danger alert-dismissible fade show"-->
 
         <div class="inside">
             <form action="login.php" method="POST">
@@ -30,7 +43,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                     </div>
-                    <input type="email" class="form-control" id="" name="email" aria-label="Username" aria-describedby="basic-addon1" value="jortega@viva1a.com.co" required>
+                    <input type="email" class="form-control" name="email" aria-label="Username" aria-describedby="basic-addon1" value="jortega@viva1a.com.co" required>
                 </div>
 
                 <label for="password" class="mtop16">Password:</label>
@@ -38,7 +51,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-key"></i></div>
                     </div>
-                    <input type="password" class="form-control" id="" name="password" aria-label="Username" aria-describedby="basic-addon1" value=".jortega" required>
+                    <input type="password" class="form-control" name="password" aria-label="Username" aria-describedby="basic-addon1" value=".jortega" required>
                 </div>
 
                 <input type="submit" name="login" class="btn btn-success mtop16" value="Acceder" />

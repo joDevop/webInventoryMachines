@@ -1,6 +1,6 @@
 <?php
 // <development db> //
-//session_start();
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";

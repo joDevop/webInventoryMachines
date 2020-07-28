@@ -82,6 +82,11 @@ body {
     padding: var(--padding) 0;
     overflow: hidden;
 }
+#user-profile{
+    font-size: 16px;
+    padding: var(--padding) 0;
+    overflow: hidden;
+}
 #sidemenu #menu-items {
     overflow: hidden;
 }
@@ -137,7 +142,7 @@ body {
 .menu-expanded #profile #photo {
     width: 200px;
 }
-.menu-expanded #profile #name {
+.menu-expanded #profile #name #user-profile {
     width: 100%;
 }
 .menu-collapsed {
@@ -150,6 +155,9 @@ body {
     margin: 0;
 }
 .menu-collapsed #profile #name {
+    display: none;
+}
+.menu-collapsed #user-profile{
     display: none;
 }
 .menu-collapsed .item {
