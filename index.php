@@ -1,5 +1,3 @@
-<?php include("./config/connectionDb.php") ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,14 +23,14 @@
             <img src="img/svg/ic_seo-and-web.svg">
         </div>
         
-        <?php if(isset($_SESSION['message'])) {?>
+        <!--<?php if(isset($_SESSION['message'])) {?>
         <div class="mtop16 alert alert-danger alert-dismissible fade show text-center">
             <?= $_SESSION['message'] ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <?php session_unset(); }?>
+        <?php session_unset(); }?>-->
 
         <!--class="alert alert-danger alert-dismissible fade show"-->
 
