@@ -8,10 +8,12 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link src="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"></link>
+  <link src="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css"></link>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <script src="https://kit.fontawesome.com/bb00059a3e.js" crossorigin="anonymous"></script>
   <script language="javascript" type="text/javascript">
     window.history.forward();
@@ -111,7 +113,7 @@
     </div>
     <br>
 
-    <div id="table-light" class="table-responsive" style="margin-bottom: 20px;">
+    <div id="table-light" class="display nowrap" style="margin-bottom: 20px;">
       <table id="datatable" class="table table-striped table-bordered display text-center">
         <thead class="table-active">
           <tr>
@@ -171,7 +173,8 @@
             <!--form-->
             <form action="insertPdo.php" method="POST">
 
-              <div class="mb-3">
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
@@ -184,7 +187,117 @@
                     <option>TV RASBPEBERRY PI</option>
                   </select>
                 </div>
+              </div>             
+            </div>
+
+            <div class="form-row">
+
+<div class="col-md-6 mb-3">
+<label for="">Fabricante:</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
+    </div>
+    <input type="text" class="form-control" name="fab" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
+  </div>
+</div>
+</div>
+
+            <div class="form-row">
+
+<div class="col-md-6 mb-3">
+<label for="">Modelo:</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""><i class="fas fa-pencil-ruler"></i></span>
+    </div>
+    <input type="text" class="form-control" name="model" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+  </div>
+</div>
+
+<div class="col-md-6 mb-3">
+<label for="">Serial:</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""><i class="fas fa-tag"></i></span>
+    </div>
+    <input type="text" class="form-control" name="sn" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
+  </div>
+</div>
+
+</div>
+
+<div class="form-row">
+
+              <div class="col-sm-5 mb-3">
+              <label for="">RAM SLOT 01:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                  </div>
+                  <select class="custom-select" name="ram" id="validatedInputGroupSelect" required>
+                    <!--<option value="">Capacidad</option>-->
+                    <option>1GB DDR2</option>
+                    <option>2GB DDR2</option>
+                    <option>2GB DDR3</option>
+                    <option>4GB DDR3</option>
+                    <option>8GB DDR3</option>
+                    <option>16GB DDR3</option>
+                  </select>
+                </div>
               </div>
+
+                            <div class="col-sm-5 mb-3">
+              <label for="">RAM SLOT 02:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                  </div>
+                  <select class="custom-select" name="ram01" id="validatedInputGroupSelect">
+                    <!--<option value="">Capacidad</option>-->
+                    <option>NULL</option>
+                    <option>1GB DDR2</option>
+                    <option>2GB DDR2</option>
+                    <option>2GB DDR3</option>
+                    <option>4GB DDR3</option>
+                    <option>8GB DDR3</option>
+                    <option>16GB DDR3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-sm-4 mb-3">
+              <label for="">Disco Duro:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-hdd"></i></span>
+                  </div>
+                  <select class="custom-select" name="disk" id="validatedInputGroupSelect" required>
+                    <!--<option value="">Capacidad</option>-->
+                    <option>70GB</option>
+                    <option>100GB</option>
+                    <option>150GB</option>
+                    <option>250GB</option>
+                    <option>300GB</option>
+                    <option>500GB</option>
+                    <option>800GB</option>
+                    <option>1TB</option>
+                    <option>2TB</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+<label for="">Procesador:</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""><i class="fas fa-microchip"></i></span>
+    </div>
+    <input type="text" class="form-control" name="cpu" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+</div>
+
+</div>
 
               <div class="form-row">
 
@@ -210,6 +323,31 @@
 
               </div>
 
+              <div class="form-row">
+
+<div class="col-md-6 mb-3">
+<label for="">Anydesk:</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
+    </div>
+    <input type="text" class="form-control" name="anydesk" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
+  </div>
+</div>
+
+<div class="col-md-6 mb-3">
+<label for="">Ubicación:</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""><img src="img/svg/gps.svg" width="20px" alt="" /></span>
+    </div>
+    <input type="text" class="form-control" name="location" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
+  </div>
+</div>
+
+</div>
+
+
               <div class="mb-3">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -229,27 +367,6 @@
                 </div>
               </div>
 
-              <div class="form-row">
-
-<div class="col-md-6 mb-3">
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
-    </div>
-    <input type="text" class="form-control" name="" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
-  </div>
-</div>
-
-<div class="col-md-6 mb-3">
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""></span>
-    </div>
-    <input type="text" class="form-control" name="" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
-  </div>
-</div>
-
-</div>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Observacion:</span>
@@ -452,8 +569,18 @@
     </div>
   </div>
 
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-  <script src="js/script.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+
   <script>
     const btn = document.querySelector("#menu-btn");
     const menu = document.querySelector("#sidemenu");
