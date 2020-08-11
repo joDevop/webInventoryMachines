@@ -38,7 +38,7 @@
 
     <div id="profile">
       <div id="photo">
-        <img src="img/svg/admin.svg" alt=""/>
+        <img src="img/svg/dashtheme01/user.svg" alt=""/>
       </div>
       <div id="name"><span> <?php if (!isset($_SESSION['email'])) {
         header("Location: index.php");
@@ -52,7 +52,7 @@
       <div class="item">
         <a href="#">
           <div class="icon">
-            <img src="img/svg/dashboard.svg" alt="" />
+            <img src="img/svg/dashtheme01/dashboard.svg" alt="" />
           </div>
           <div class="title"><span>Dashboard</span></div>
         </a>
@@ -61,7 +61,7 @@
       <div class="item">
         <a href="#">
           <div class="icon">
-            <img src="img/svg/server.svg" alt="" />
+            <img src="img/svg/dashtheme01/menu.svg" alt="" />
           </div>
           <div class="title"><span>Servers</span></div>
         </a>
@@ -70,7 +70,7 @@
       <div class="item">
         <a href="#">
           <div class="icon">
-            <img src="img/png/pc.png" alt="" />
+            <img src="img/svg/dashtheme01/monitor.svg" alt="" />
           </div>
           <div class="title"><span>Machines</span></div>
         </a>
@@ -79,7 +79,7 @@
       <div class="item">
         <a href="http://localhost//appInventoryMachinesViva1a/web/index.html" target="_blank">
           <div class="icon">
-            <img src="img/svg/add.svg" alt="" />
+            <img src="img/svg/dashtheme01/edit.svg" alt="" />
           </div>
           <div class="title"><span>Register with images</span></div>
         </a>
@@ -90,7 +90,7 @@
       <div class="item">
         <a href="logout.php">
           <div class="icon">
-            <img src="img/svg/logout.svg" alt="" />
+            <img src="img/svg/dashtheme01/exit.svg" alt="" />
           </div>
           <div class="title"><span>Logout</span></div>
         </a>
