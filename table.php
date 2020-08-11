@@ -1,6 +1,4 @@
-<?php include("./config/connectionDb.php");
-
-?>
+<?php include("./config/connectionDb.php"); ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -42,12 +40,12 @@
       <div id="photo">
         <img src="img/svg/admin.svg" alt=""/>
       </div>
-      <div id="name"><span> <?php if (empty($_SESSION['email_tec'])){
-        die ('You have to be logged in to visit this page');
+      <div id="name"><span> <?php if (!isset($_SESSION['email'])) {
+        header("Location: index.php");
       }
-        echo $_SESSION['name_tec'];?> <?php echo $_SESSION['last_name_tec'];?> </span></div>
+      echo $_SESSION['email'];?> </span></div>
 
-      <div id="user-profile"><span><?php echo $_SESSION['position_job'];?> | <?php echo $_SESSION['campus_tec'];?> </span></div>
+      <div id="user-profile"><span> </span></div>
     </div>
 
     <div id="menu-items">

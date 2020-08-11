@@ -1,3 +1,5 @@
+<?php include("login.php"); ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,19 +25,25 @@
             <img src="img/svg/ic_seo-and-web.svg">
         </div>
         
-        <!--<?php if(isset($_SESSION['message'])) {?>
+        <!--<?php if(isset($message)) {?>
         <div class="mtop16 alert alert-danger alert-dismissible fade show text-center">
-            <?= $_SESSION['message'] ?>
+            <?php echo $_SESSION['message'] ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <?php session_unset(); }?>-->
+        <?php }?>-->
 
-        <!--class="alert alert-danger alert-dismissible fade show"-->
+        <?php
+
+        if (isset($message)) {
+            echo '<div class="mtop16 text-center"><label class="text-danger text-center">'.$message.'</label></div>';
+        }
+
+        ?>
 
         <div class="inside">
-            <form action="login.php" method="POST">
+            <form method="POST">
                 <label for="email">Correo Electrónico:</label>
                 <div class="input-group">
                     <div class="input-group-prepend">

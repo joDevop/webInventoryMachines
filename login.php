@@ -2,24 +2,39 @@
 include("./config/connectionDb.php");
 
 $data = $_POST;
+$message = "";
+//$password_encrypt = sha1($password);
 
-if(!empty($data)) {
+if(isset($data["login"])) {
 
-    $email = mysqli_real_escape_string($conexion,$data['email']);
-    $password = mysqli_real_escape_string($conexion,$data['password']);
-    $password_encrypt = sha1($password);
+    if (empty($data["email"]) || empty($data["password"])) {
+            $message = '<label>All field is required</label>';
+            //echo $_SESSION['message'] = 'Email or password are required!';
+        }
+        else
+        {
+        $query = "SELECT id FROM table_user_tec WHERE email_tec = :email AND password_tec = :password";
+        $statement = $conexion->prepare($query);
+        $statement->execute(
+            array(
+                'email' => $data["email"],
+                'password' => $data["password"]
+            )
+        );
 
-    $sql = "SELECT id FROM table_user_tec WHERE email_tec = '$email' AND password_tec = '$password' ";
+        $count = $statement->rowCount();
+        if($count > 0)
+        {
+            $_SESSION["email"] = $data["email"];
+            $_SESSION["id_tec"] = $data["id"];
+            header("Location: table.php");
+        }
+        else
+        {
+            $message = '<label>Username OR Password is wrong</label>';
+            //echo $_SESSION['message'] = 'Username OR Password is wrong!';
 
-    $result = $conexion->query($sql);
-    $rows = $result->num_rows;
-    if($rows > 0) {
-        $row = $result->FETCH_ASSOC();
-        $_SESSION['id_tec'] = $row["id"];
-        header("Location: table.php");
-    }else {
-        echo $_SESSION['message'] = 'Email or password are required!';
-        header("location: index.php");
+        }
     }
 }
 
