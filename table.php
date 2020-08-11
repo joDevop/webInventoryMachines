@@ -229,6 +229,27 @@
                 </div>
               </div>
 
+              <div class="form-row">
+
+<div class="col-md-6 mb-3">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
+    </div>
+    <input type="text" class="form-control" name="" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
+  </div>
+</div>
+
+<div class="col-md-6 mb-3">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id=""></span>
+    </div>
+    <input type="text" class="form-control" name="" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
+  </div>
+</div>
+
+</div>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Observacion:</span>
