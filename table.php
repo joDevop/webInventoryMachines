@@ -146,7 +146,7 @@
 
             <tr>
               <td class="text-left" id="id_machine" style="display:none;"><?php echo $machine->id_machine ?></td>
-              <td style="width: 200px;"><?php echo $machine->type_machine ?></td>
+              <td style="width: 180px;"><?php echo $machine->type_machine ?></td>
               <td style="display:none;"><?php echo $machine->manufacturer ?></td>
               <td style="display:none;"><?php echo $machine->model ?></td>
               <td style="display:none;"><?php echo $machine->serial ?></td>
@@ -157,7 +157,7 @@
               <td><?php echo $machine->ip_range ?></td>
               <td><?php echo $machine->mac_address ?></td>
               <td><?php echo $machine->anydesk ?></td>
-              <td style="width: 250px;"><?php echo $machine->campus ?></td>
+              <td><?php echo $machine->campus ?></td>
               <td style="display:none;"><?php echo $machine->location ?></td>
               <td><?php echo $machine->create_date ?></td>
               <td style="font-size: 10px; display:none;"><?php echo $machine->comment ?></td>
@@ -257,8 +257,11 @@
                       <option>2GB DDR2</option>
                       <option>2GB DDR3</option>
                       <option>4GB DDR3</option>
+                      <option>4GB DDR4</option>
                       <option>8GB DDR3</option>
+                      <option>8GB DDR4</option>
                       <option>16GB DDR3</option>
+                      <option>16GB DDR4</option>
                     </select>
                   </div>
                 </div>
@@ -276,8 +279,11 @@
                       <option>2GB DDR2</option>
                       <option>2GB DDR3</option>
                       <option>4GB DDR3</option>
+                      <option>4GB DDR4</option>
                       <option>8GB DDR3</option>
+                      <option>8GB DDR4</option>
                       <option>16GB DDR3</option>
+                      <option>16GB DDR4</option>
                     </select>
                   </div>
                 </div>
@@ -409,54 +415,205 @@
           </div>
           <div class="modal-body">
             <form>
-              <input type="hidden" name="id" id="view_id">
+              <input type="hidden" name="id" id="id_view">
 
-              <div><label>Tipo:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text fas fa-desktop" id="basic-addon1"></span>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
+                    </div>
+                    <select class="custom-select" name="type" id="type_view" disabled>
+                      <option value="">Seleccione tipo...</option>
+                      <option>PC</option>
+                      <option>ATRIL</option>
+                      <option>LAPTOP</option>
+                      <option>TV RASBPEBERRY PI</option>
+                    </select>
                   </div>
-                  <input class="form-control" id="type" name="type" type="text" disabled>
                 </div>
               </div>
-              </br>
 
-              <div><label>Rango IP:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Fabricante:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="fact" id="fact_view" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" disabled>
                   </div>
-                  <input class="form-control" id="ip" name="ip" type="text" disabled>
                 </div>
               </div>
-              </br>
 
-              <div><label>Direccion Mac:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Modelo:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-pencil-ruler"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="model" id="model_view" placeholder="" aria-label="Username" aria-describedby="basic-addon1" disabled>
                   </div>
-                  <input class="form-control" id="mac" name="mac" type="text" disabled>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Serial:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-tag"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="serial" id="serial_view" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" disabled>
+                  </div>
                 </div>
               </div>
-              </br>
 
-              <div><label>Sede:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text fas fa-building" id="basic-addon1"></span>
+              <div class="form-row">
+                <div class="col-sm-5 mb-3">
+                  <label for="">RAM SLOT 01:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                    </div>
+                    <select class="custom-select" name="ram-slot00" id="ramslot00_view" disabled>
+                      <!--<option value="">Capacidad</option>-->
+                      <option>1GB DDR2</option>
+                      <option>2GB DDR2</option>
+                      <option>2GB DDR3</option>
+                      <option>4GB DDR3</option>
+                      <option>4GB DDR4</option>
+                      <option>8GB DDR3</option>
+                      <option>8GB DDR4</option>
+                      <option>16GB DDR3</option>
+                      <option>16GB DDR4</option>
+                    </select>
                   </div>
-                  <input class="form-control" id="campus" name="campus" type="text" disabled>
+                </div>
+
+                <div class="col-sm-5 mb-3">
+                  <label for="">RAM SLOT 02:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                    </div>
+                    <select class="custom-select" name="ram-slot01" id="ramslot01_view" disabled>
+                      <!--<option value="">Capacidad</option>-->
+                      <option>NULL</option>
+                      <option>1GB DDR2</option>
+                      <option>2GB DDR2</option>
+                      <option>2GB DDR3</option>
+                      <option>4GB DDR3</option>
+                      <option>4GB DDR4</option>
+                      <option>8GB DDR3</option>
+                      <option>8GB DDR4</option>
+                      <option>16GB DDR3</option>
+                      <option>16GB DDR4</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 mb-3">
+                  <label for="">Disco Duro:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-hdd"></i></span>
+                    </div>
+                    <select class="custom-select" name="hard-drive" id="disk_view" disabled>
+                      <!--<option value="">Capacidad</option>-->
+                      <option>70GB</option>
+                      <option>100GB</option>
+                      <option>150GB</option>
+                      <option>250GB</option>
+                      <option>300GB</option>
+                      <option>500GB</option>
+                      <option>800GB</option>
+                      <option>1TB</option>
+                      <option>2TB</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Procesador:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-microchip"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="cpu" id="cpu_view" placeholder="" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                  </div>
                 </div>
               </div>
-              </br>
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Dirección Ip:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="ip" id="ip_view" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Dirección Mac:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="mac" id="mac_view" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon2" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Anydesk:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
+                    </div>
+                    <input type="text" class="form-control" name="anydesk" id="anydesk_view" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Ubicación:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><img src="img/svg/aim.svg" width="20px" alt="" /></span>
+                    </div>
+                    <input type="text" class="form-control" name="location" id="location_view" placeholder="" aria-label="Username" aria-describedby="basic-addon2" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
+                  </div>
+                  <select class="custom-select" name="campus" id="campus_view" disabled>
+                    <option value="">Seleccione sede...</option>
+                    <option>VIVA 1A IPS SURA 85</option>
+                    <option>VIVA 1A IPS COUNTRY</option>
+                    <option>VIVA 1A IPS SOLEDAD</option>
+                    <option>VIVA 1A IPS CALLE 30</option>
+                    <option>VIVA 1A IPS MACARENA</option>
+                    <option>VIVA 1A IPS CARRERA 16</option>
+                    <option>VIVA 1A IPS CASA MATRIZ</option>
+                    <option>VIVA 1A IPS SURA SAN JOSE</option>
+                  </select>
+                </div>
+              </div>
 
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Observacion:</span>
                 </div>
-                <textarea class="form-control" id="observation" name="observation" aria-label="With textarea" disabled></textarea>
+                <textarea class="form-control" name="comment" id="comment_view" aria-label="With textarea" disabled></textarea>
               </div>
+
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -482,66 +639,201 @@
             <form action="updatePdo.php" method="POST">
               <input type="hidden" name="id" id="update_id">
 
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupFileAddon01">Cargar Imagen</span>
-                </div>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="imagen" id="" aria-describedby="inputGroupFileAddon01">
-                  <label class="custom-file-label" for="inputGroupFile01"></label>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
+                    </div>
+                    <select class="custom-select" name="type" id="type_update" required>
+                      <option value="">Seleccione tipo...</option>
+                      <option>PC</option>
+                      <option>ATRIL</option>
+                      <option>LAPTOP</option>
+                      <option>TV RASBPEBERRY PI</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="">Tipo:</label>
-                <select class="form-control" id="type_update" name="type">
-                  <option>PC</option>
-                  <option>ATRIL</option>
-                  <option>LAPTOP</option>
-                  <option>TV RASBPEBERRY PI</option>
-                </select>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Fabricante:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="fact" id="fact_update" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
               </div>
 
-              <div><label>Rango IP:</label>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Modelo:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-pencil-ruler"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="model" id="model_update" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Serial:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-tag"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="serial" id="serial_update" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-sm-5 mb-3">
+                  <label for="">RAM SLOT 01:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                    </div>
+                    <select class="custom-select" name="ram-slot00" id="ramslot00_update" required>
+                      <!--<option value="">Capacidad</option>-->
+                      <option>1GB DDR2</option>
+                      <option>2GB DDR2</option>
+                      <option>2GB DDR3</option>
+                      <option>4GB DDR3</option>
+                      <option>4GB DDR4</option>
+                      <option>8GB DDR3</option>
+                      <option>8GB DDR4</option>
+                      <option>16GB DDR3</option>
+                      <option>16GB DDR4</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-sm-5 mb-3">
+                  <label for="">RAM SLOT 02:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                    </div>
+                    <select class="custom-select" name="ram-slot01" id="ramslot01_update">
+                      <!--<option value="">Capacidad</option>-->
+                      <option>NULL</option>
+                      <option>1GB DDR2</option>
+                      <option>2GB DDR2</option>
+                      <option>2GB DDR3</option>
+                      <option>4GB DDR3</option>
+                      <option>4GB DDR4</option>
+                      <option>8GB DDR3</option>
+                      <option>8GB DDR4</option>
+                      <option>16GB DDR3</option>
+                      <option>16GB DDR4</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 mb-3">
+                  <label for="">Disco Duro:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-hdd"></i></span>
+                    </div>
+                    <select class="custom-select" name="hard-drive" id="disk_update" required>
+                      <!--<option value="">Capacidad</option>-->
+                      <option>70GB</option>
+                      <option>100GB</option>
+                      <option>150GB</option>
+                      <option>250GB</option>
+                      <option>300GB</option>
+                      <option>500GB</option>
+                      <option>800GB</option>
+                      <option>1TB</option>
+                      <option>2TB</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Procesador:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-microchip"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="cpu" id="cpu_update" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Dirección Ip:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="ip" id="ip_update" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Dirección Mac:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="mac" id="mac_update" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon2" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Anydesk:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
+                    </div>
+                    <input type="text" class="form-control" name="anydesk" id="anydesk_update" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Ubicación:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><img src="img/svg/aim.svg" width="20px" alt="" /></span>
+                    </div>
+                    <input type="text" class="form-control" name="location" id="location_update" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text fas fa-ethernet" id="basic-addon1"></span>
+                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
                   </div>
-                  <input type="text" class="form-control" id="ip_update" name="ip" aria-label="Username" aria-describedby="basic-addon1">
+                  <select class="custom-select" name="campus" id="campus_update" required>
+                    <option value="">Seleccione sede...</option>
+                    <option>VIVA 1A IPS SURA 85</option>
+                    <option>VIVA 1A IPS COUNTRY</option>
+                    <option>VIVA 1A IPS SOLEDAD</option>
+                    <option>VIVA 1A IPS CALLE 30</option>
+                    <option>VIVA 1A IPS MACARENA</option>
+                    <option>VIVA 1A IPS CARRERA 16</option>
+                    <option>VIVA 1A IPS CASA MATRIZ</option>
+                    <option>VIVA 1A IPS SURA SAN JOSE</option>
+                  </select>
                 </div>
               </div>
-              </br>
-
-              <div><label>Direccion Mac:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text fas fa-barcode" id="basic-addon1"></span>
-                  </div>
-                  <input type="text" class="form-control" id="mac_update" name="mac" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              </br>
-
-              <div class="form-group">
-                <label for="">Sede:</label>
-                <select class="form-control" id="campus_update" name="campus">
-                  <option>VIVA 1A IPS SURA 85</option>
-                  <option>VIVA 1A IPS COUNTRY</option>
-                  <option>VIVA 1A IPS SOLEDAD</option>
-                  <option>VIVA 1A IPS CALLE 30</option>
-                  <option>VIVA 1A IPS MACARENA</option>
-                  <option>VIVA 1A IPS CARRERA 16</option>
-                  <option>VIVA 1A IPS CASA MATRIZ</option>
-                  <option>VIVA 1A IPS SURA SAN JOSE</option>
-                </select>
-              </div>
-              <br />
 
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Observacion:</span>
                 </div>
-                <textarea class="form-control" id="observation_update" name="observation" aria-label="With textarea"></textarea>
+                <textarea class="form-control" name="comment" id="comment_update" aria-label="With textarea"></textarea>
               </div>
 
               <div class="modal-footer">

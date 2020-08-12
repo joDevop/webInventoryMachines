@@ -29,10 +29,20 @@ $(".updatebtn").on("click", function () {
     });
     $("#update_id").val(datos[0]);
     $("#type_update").val(datos[1]);
-    $("#ip_update").val(datos[2]);
-    $("#mac_update").val(datos[3]);
-    $("#campus_update").val(datos[4]);
-    $("#observation_update").val(datos[6]);
+    $("#fact_update").val(datos[2]);
+    $("#model_update").val(datos[3]);
+    $("#serial_update").val(datos[4]);
+    $("#ramslot00_update").val(datos[5]);
+    $("#ramslot01_update").val(datos[6]);
+    $("#disk_update").val(datos[7]);
+    $("#cpu_update").val(datos[8]);
+    $("#ip_update").val(datos[9]);
+    $("#mac_update").val(datos[10]);
+    $("#anydesk_update").val(datos[11]);
+    $("#campus_update").val(datos[12]);
+    $("#location_update").val(datos[13]);
+    $("#comment_update").val(datos[15]);
+
 });
 
 //MODAL VIEW!
@@ -41,12 +51,21 @@ $(".viewbtn").on("click", function () {
     var datos = $tr.children("td").map(function () {
         return $(this).text();
     });
-    $("#view_id").val(datos[0]);
-    $("#type").val(datos[1]);
-    $("#ip").val(datos[2]);
-    $("#mac").val(datos[3]);
-    $("#campus").val(datos[4]);
-    $("#observation").val(datos[6]);
+    $("#id_view").val(datos[0]);
+    $("#type_view").val(datos[1]);
+    $("#fact_view").val(datos[2]);
+    $("#model_view").val(datos[3]);
+    $("#serial_view").val(datos[4]);
+    $("#ramslot00_view").val(datos[5]);
+    $("#ramslot01_view").val(datos[6]);
+    $("#disk_view").val(datos[7]);
+    $("#cpu_view").val(datos[8]);
+    $("#ip_view").val(datos[9]);
+    $("#mac_view").val(datos[10]);
+    $("#anydesk_view").val(datos[11]);
+    $("#campus_view").val(datos[12]);
+    $("#location_view").val(datos[13]);
+    $("#comment_view").val(datos[15]);
 });
 
 //MODAL DELETE!
