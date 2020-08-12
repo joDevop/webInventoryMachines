@@ -8,8 +8,10 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link src="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"></link>
-  <link src="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css"></link>
+  <link src="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  </link>
+  <link src="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+  </link>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -40,12 +42,12 @@
 
     <div id="profile">
       <div id="photo">
-        <img src="img/svg/dashtheme02/user.svg" alt=""/>
+        <img src="img/svg/dashtheme02/user.svg" alt="" />
       </div>
       <div id="name"><span> <?php if (!isset($_SESSION['email'])) {
-        header("Location: index.php");
-      }
-      echo $_SESSION['email'];?> </span></div>
+                              header("Location: index.php");
+                            }
+                            echo $_SESSION['email']; ?> </span></div>
 
       <div id="user-profile"><span> </span></div>
     </div>
@@ -113,15 +115,24 @@
     </div>
     <br>
 
-    <div id="table-light" class="display nowrap" style="margin-bottom: 20px;">
+    <div id="table-light" class="table-responsive" style="margin-bottom: 20px;">
       <table id="datatable" class="table table-striped table-bordered display text-center">
         <thead class="table-active">
           <tr>
             <th scope="col" style="display:none;">#ID</th>
-            <th scope="col">DESCRIPCIÓN</th>
+            <th scope="col">TIPO</th>
+            <th scope="col" style="display:none;">FABRICANTE</th>
+            <th scope="col" style="display:none;">MODELO</th>
+            <th scope="col" style="display:none;">SERIAL</th>
+            <th scope="col" style="display:none;">RAM 01</th>
+            <th scope="col" style="display:none;">RAM 02</th>
+            <th scope="col" style="display:none;">DISK</th>
+            <th scope="col" style="display:none;">CPU</th>
             <th scope="col">RANGO IP</th>
             <th scope="col">MAC</th>
+            <th scope="col"><img src="img/png/anydesk.png" width="30px" alt="" />ANYDESK</th>
             <th scope="col">SEDE</th>
+            <th scope="col" style="display:none;">LOCATION</th>
             <th scope="col">FECHA DE CREACÍON</th>
             <th scope="col" style="display:none;"></th>
             <th scope="col"></th>
@@ -135,12 +146,21 @@
 
             <tr>
               <td class="text-left" id="id_machine" style="display:none;"><?php echo $machine->id_machine ?></td>
-              <td><?php echo $machine->type_machine ?></td>
+              <td style="width: 200px;"><?php echo $machine->type_machine ?></td>
+              <td style="display:none;"><?php echo $machine->manufacturer ?></td>
+              <td style="display:none;"><?php echo $machine->model ?></td>
+              <td style="display:none;"><?php echo $machine->serial ?></td>
+              <td style="display:none;"><?php echo $machine->ram_slot_00 ?></td>
+              <td style="display:none;"><?php echo $machine->ram_slot_01 ?></td>
+              <td style="display:none;"><?php echo $machine->hard_drive ?></td>
+              <td style="display:none;"><?php echo $machine->cpu ?></td>
               <td><?php echo $machine->ip_range ?></td>
               <td><?php echo $machine->mac_address ?></td>
-              <td><?php echo $machine->campus ?></td>
+              <td><?php echo $machine->anydesk ?></td>
+              <td style="width: 250px;"><?php echo $machine->campus ?></td>
+              <td style="display:none;"><?php echo $machine->location ?></td>
               <td><?php echo $machine->create_date ?></td>
-              <td style="font-size: 10px; display:none;"><?php echo $machine->observ ?></td>
+              <td style="font-size: 10px; display:none;"><?php echo $machine->comment ?></td>
               <td><button type="button" name="view" class="btn btn-info fas fa-eye viewbtn" data-toggle="modal" data-target="#viewModal">
                 </button></td>
               <td><button type="button" name="update" class="btn btn-success fas fa-edit updatebtn" data-toggle="modal" data-target="#updateModal">
@@ -173,134 +193,128 @@
             <!--form-->
             <form action="insertPdo.php" method="POST">
 
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
+                    </div>
+                    <select class="custom-select" name="type" id="validatedInputGroupSelect" required>
+                      <option value="">Seleccione tipo...</option>
+                      <option>PC</option>
+                      <option>ATRIL</option>
+                      <option>LAPTOP</option>
+                      <option>TV RASBPEBERRY PI</option>
+                    </select>
                   </div>
-                  <select class="custom-select" name="type" id="validatedInputGroupSelect" required>
-                    <option value="">Seleccione el tipo...</option>
-                    <option>PC</option>
-                    <option>ATRIL</option>
-                    <option>LAPTOP</option>
-                    <option>TV RASBPEBERRY PI</option>
-                  </select>
-                </div>
-              </div>             
-            </div>
-
-            <div class="form-row">
-
-<div class="col-md-6 mb-3">
-<label for="">Fabricante:</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
-    </div>
-    <input type="text" class="form-control" name="fab" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
-  </div>
-</div>
-</div>
-
-            <div class="form-row">
-
-<div class="col-md-6 mb-3">
-<label for="">Modelo:</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""><i class="fas fa-pencil-ruler"></i></span>
-    </div>
-    <input type="text" class="form-control" name="model" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
-  </div>
-</div>
-
-<div class="col-md-6 mb-3">
-<label for="">Serial:</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""><i class="fas fa-tag"></i></span>
-    </div>
-    <input type="text" class="form-control" name="sn" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
-  </div>
-</div>
-
-</div>
-
-<div class="form-row">
-
-              <div class="col-sm-5 mb-3">
-              <label for="">RAM SLOT 01:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
-                  </div>
-                  <select class="custom-select" name="ram" id="validatedInputGroupSelect" required>
-                    <!--<option value="">Capacidad</option>-->
-                    <option>1GB DDR2</option>
-                    <option>2GB DDR2</option>
-                    <option>2GB DDR3</option>
-                    <option>4GB DDR3</option>
-                    <option>8GB DDR3</option>
-                    <option>16GB DDR3</option>
-                  </select>
                 </div>
               </div>
-
-                            <div class="col-sm-5 mb-3">
-              <label for="">RAM SLOT 02:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
-                  </div>
-                  <select class="custom-select" name="ram01" id="validatedInputGroupSelect">
-                    <!--<option value="">Capacidad</option>-->
-                    <option>NULL</option>
-                    <option>1GB DDR2</option>
-                    <option>2GB DDR2</option>
-                    <option>2GB DDR3</option>
-                    <option>4GB DDR3</option>
-                    <option>8GB DDR3</option>
-                    <option>16GB DDR3</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-sm-4 mb-3">
-              <label for="">Disco Duro:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-hdd"></i></span>
-                  </div>
-                  <select class="custom-select" name="disk" id="validatedInputGroupSelect" required>
-                    <!--<option value="">Capacidad</option>-->
-                    <option>70GB</option>
-                    <option>100GB</option>
-                    <option>150GB</option>
-                    <option>250GB</option>
-                    <option>300GB</option>
-                    <option>500GB</option>
-                    <option>800GB</option>
-                    <option>1TB</option>
-                    <option>2TB</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-md-6 mb-3">
-<label for="">Procesador:</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""><i class="fas fa-microchip"></i></span>
-    </div>
-    <input type="text" class="form-control" name="cpu" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
-</div>
-
-</div>
 
               <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Fabricante:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="fact" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
+              </div>
 
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Modelo:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-pencil-ruler"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="model" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Serial:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-tag"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="serial" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-sm-5 mb-3">
+                  <label for="">RAM SLOT 01:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                    </div>
+                    <select class="custom-select" name="ram-slot00" id="validatedInputGroupSelect" required>
+                      <!--<option value="">Capacidad</option>-->
+                      <option>1GB DDR2</option>
+                      <option>2GB DDR2</option>
+                      <option>2GB DDR3</option>
+                      <option>4GB DDR3</option>
+                      <option>8GB DDR3</option>
+                      <option>16GB DDR3</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-sm-5 mb-3">
+                  <label for="">RAM SLOT 02:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-memory"></i></span>
+                    </div>
+                    <select class="custom-select" name="ram-slot01" id="validatedInputGroupSelect">
+                      <!--<option value="">Capacidad</option>-->
+                      <option>NULL</option>
+                      <option>1GB DDR2</option>
+                      <option>2GB DDR2</option>
+                      <option>2GB DDR3</option>
+                      <option>4GB DDR3</option>
+                      <option>8GB DDR3</option>
+                      <option>16GB DDR3</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 mb-3">
+                  <label for="">Disco Duro:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-hdd"></i></span>
+                    </div>
+                    <select class="custom-select" name="hard-drive" id="validatedInputGroupSelect" required>
+                      <!--<option value="">Capacidad</option>-->
+                      <option>70GB</option>
+                      <option>100GB</option>
+                      <option>150GB</option>
+                      <option>250GB</option>
+                      <option>300GB</option>
+                      <option>500GB</option>
+                      <option>800GB</option>
+                      <option>1TB</option>
+                      <option>2TB</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Procesador:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-microchip"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="cpu" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="">Dirección Ip:</label>
                   <div class="input-group">
@@ -320,33 +334,29 @@
                     <input type="text" class="form-control" name="mac" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon2" required>
                   </div>
                 </div>
-
               </div>
 
               <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Anydesk:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
+                    </div>
+                    <input type="text" class="form-control" name="anydesk" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
 
-<div class="col-md-6 mb-3">
-<label for="">Anydesk:</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
-    </div>
-    <input type="text" class="form-control" name="anydesk" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
-  </div>
-</div>
-
-<div class="col-md-6 mb-3">
-<label for="">Ubicación:</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id=""><img src="img/svg/gps.svg" width="20px" alt="" /></span>
-    </div>
-    <input type="text" class="form-control" name="location" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
-  </div>
-</div>
-
-</div>
-
+                <div class="col-md-6 mb-3">
+                  <label for="">Ubicación:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><img src="img/svg/aim.svg" width="20px" alt="" /></span>
+                    </div>
+                    <input type="text" class="form-control" name="location" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
+                  </div>
+                </div>
+              </div>
 
               <div class="mb-3">
                 <div class="input-group">
@@ -370,8 +380,9 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Observacion:</span>
+                  <!--cambiar campo en la bd a "comment" y demas-->
                 </div>
-                <textarea class="form-control" id="" name="observation" aria-label="With textarea"></textarea>
+                <textarea class="form-control" id="" name="comment" aria-label="With textarea"></textarea>
               </div>
 
               <div class="modal-footer">
@@ -571,6 +582,7 @@
 
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
@@ -592,6 +604,7 @@
         .classList.toggle("body-expanded");
     });
   </script>
+
 </body>
 
 </html>

@@ -13,7 +13,7 @@ if(isset($data["login"])) {
         }
         else
         {
-        $query = "SELECT id FROM table_user_tec WHERE email_tec = :email AND password_tec = :password";
+        $query = "SELECT *FROM table_user_tec WHERE email_tec = :email AND password_tec = :password";
         $statement = $conexion->prepare($query);
         $statement->execute(
             array(
@@ -26,7 +26,6 @@ if(isset($data["login"])) {
         if($count > 0)
         {
             $_SESSION["email"] = $data["email"];
-            $_SESSION["id_tec"] = $data["id"];
             header("Location: table.php");
         }
         else
