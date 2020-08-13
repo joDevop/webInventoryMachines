@@ -1,203 +1,203 @@
 body {
-    background-color: #f6f6f6;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    padding: 0;
-    margin: 0;
-    margin-left: var(--width-collapsed);
+  background-color: #f6f6f6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  margin-left: var(--width-collapsed);
 }
 :root {
-    --width: 300px;
-    --padding: 10px;
-    --bgcolor: rgb(52, 52, 52);
-    --hovercolor: rgb(23, 23, 23);
-    --width-collapsed: 50px;
+  --width: 300px;
+  --padding: 10px;
+  --bgcolor: rgb(52, 52, 52);
+  --hovercolor: rgb(23, 23, 23);
+  --width-collapsed: 50px;
 }
 .body-expanded {
-    margin-left: var(--width);
+  margin-left: var(--width);
 }
 #main-container {
-    color: #f6f6f6;
+  color: #f6f6f6;
 }
 /* HEADER */
 #sidemenu {
-    background-color: var(--bgcolor);
-    color: white;
-    position: fixed;
-    height: 100%;
-    left: 0;
-    top: 0;
+  background-color: var(--bgcolor);
+  color: white;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
 #sidemenu a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 #sidemenu #header {
-    box-sizing: border-box;
-    border-bottom: solid 1px var(--hovercolor);
+  box-sizing: border-box;
+  border-bottom: solid 1px var(--hovercolor);
 }
 #sidemenu #header #title {
-    box-sizing: border-box;
-    overflow: hidden;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 #sidemenu #header #title,
 #sidemenu #header #menu-btn {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 #sidemenu #header #menu-btn {
-    display: inline-block;
+  display: inline-block;
 }
 #sidemenu #header #menu-btn {
-    cursor: pointer;
-    padding: 10px;
-    width: var(--width-collapsed);
-    box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px;
+  width: var(--width-collapsed);
+  box-sizing: border-box;
 }
 #sidemenu #header #menu-btn:hover {
-    background-color: var(--hovercolor);
+  background-color: var(--hovercolor);
 }
 #sidemenu #header #menu-btn .btn-hamburger {
-    background-color: #fff;
-    width: 100%;
-    height: 2px;
-    margin: 5px 0;
+  background-color: #fff;
+  width: 100%;
+  height: 2px;
+  margin: 5px 0;
 }
 /* PROFILE */
 #sidemenu #profile {
-    border-bottom: solid 1px var(--hovercolor);
-    padding: var(--padding) 0;
-    text-align: center;
+  border-bottom: solid 1px var(--hovercolor);
+  padding: var(--padding) 0;
+  text-align: center;
 }
 #sidemenu #profile #photo {
-    box-sizing: border-box;
-    padding: var(--padding);
-    margin: 0 auto;
+  box-sizing: border-box;
+  padding: var(--padding);
+  margin: 0 auto;
 }
 #sidemenu #profile #photo img {
-    width: 80%;
+  width: 80%;
 }
 #sidemenu #profile #photo,
 #sidemenu #profile #name {
-    font-size: 24px;
-    padding: var(--padding) 0;
-    overflow: hidden;
+  font-size: 24px;
+  padding: var(--padding) 0;
+  overflow: hidden;
 }
-#user-profile{
-    font-size: 16px;
-    padding: var(--padding) 0;
-    overflow: hidden;
+#user-profile {
+  font-size: 16px;
+  padding: var(--padding) 0;
+  overflow: hidden;
 }
 #sidemenu #menu-items {
-    overflow: hidden;
+  overflow: hidden;
 }
 #sidemenu #menu-items .item {
-    width: var(--width);
+  width: var(--width);
 }
 #sidemenu #menu-items .item .icon {
-    display: inline-block;
+  display: inline-block;
 }
 #sidemenu #menu-items .item .icon,
 #sidemenu #menu-items .item .title {
-    font-size: 14px;
-    vertical-align: middle;
-    overflow: hidden;
-    display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+  overflow: hidden;
+  display: inline-block;
 }
 #sidemenu #menu-items .item a {
-    display: block;
+  display: block;
 }
 #sidemenu #menu-items .item a:hover {
-    background-color: var(--hovercolor);
+  background-color: var(--hovercolor);
 }
 #sidemenu #menu-items .item .icon {
-    box-sizing: border-box;
-    padding: var(--padding);
-    width: var(--width-collapsed);
+  box-sizing: border-box;
+  padding: var(--padding);
+  width: var(--width-collapsed);
 }
 #sidemenu #menu-items .item .icon img {
-    width: 30px;
+  width: 30px;
 }
 #sidemenu #menu-items .item .title {
-    padding: var(--padding) 0;
+  padding: var(--padding) 0;
 }
 #sidemenu #menu-items .item.separator {
-    height: 1px;
-    border-bottom: solid 1px var(--hovercolor);
-    margin: 15px 0;
+  height: 1px;
+  border-bottom: solid 1px var(--hovercolor);
+  margin: 15px 0;
 }
 .menu-expanded {
-    width: var(--width);
-    box-shadow: 0 0 10px rgb(0, 0, 0.5);
+  width: var(--width);
+  box-shadow: 0 0 10px rgb(0, 0, 0.5);
 }
 .menu-expanded #header #title {
-    display: inline-block;
-    width: calc(100% - 20%);
-    margin-right: -5px;
-    padding: var(--padding);
+  display: inline-block;
+  width: calc(100% - 20%);
+  margin-right: -5px;
+  padding: var(--padding);
 }
 .menu-expanded #header #title span {
-    width: calc(var(--width)- var(--width-collapsed) - 5px);
-    overflow: hidden;
+  width: calc(var(--width)- var(--width-collapsed) - 5px);
+  overflow: hidden;
 }
 .menu-expanded #profile #photo {
-    width: 200px;
+  width: 200px;
 }
 .menu-expanded #profile #name #user-profile {
-    width: 100%;
+  width: 100%;
 }
 .menu-collapsed {
-    width: var(--width-collapsed);
+  width: var(--width-collapsed);
 }
 .menu-collapsed #header #title {
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
 }
 .menu-collapsed #profile #name {
-    display: none;
+  display: none;
 }
-.menu-collapsed #user-profile{
-    display: none;
+.menu-collapsed #user-profile {
+  display: none;
 }
 .menu-collapsed .item {
-    width: 100px;
+  width: 100px;
 }
 .container-fluid,
 .container-xl,
 .container-lg,
 .container-md,
 .container-sm {
-    width: 100%;
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
-    margin-right: auto;
-    margin-left: auto;
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 .container {
-    width: 100%;
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
-    margin-right: auto;
-    margin-left: auto;
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 @media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
+  .container {
+    max-width: 540px;
+  }
 }
 @media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
+  .container {
+    max-width: 720px;
+  }
 }
 @media (min-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
+  .container {
+    max-width: 960px;
+  }
 }
 @media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
+  .container {
+    max-width: 1140px;
+  }
 }

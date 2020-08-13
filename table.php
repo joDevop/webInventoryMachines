@@ -184,7 +184,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Registrar nueva maquina</h5>
+            <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Registrar nuevo equipo</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -195,6 +195,7 @@
 
               <div class="form-row">
                 <div class="col-md-6 mb-3">
+                <label for="">Tipo de equipo:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
@@ -208,16 +209,14 @@
                     </select>
                   </div>
                 </div>
-              </div>
 
-              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="">Fabricante:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="fact" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input type="text" class="form-control" id="name-input" name="fact" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
               </div>
@@ -245,7 +244,7 @@
               </div>
 
               <div class="form-row">
-                <div class="col-sm-5 mb-3">
+                <div class="col-sm-6 mb-3">
                   <label for="">RAM SLOT 01:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -253,20 +252,25 @@
                     </div>
                     <select class="custom-select" name="ram-slot00" id="validatedInputGroupSelect" required>
                       <!--<option value="">Capacidad</option>-->
-                      <option>1GB DDR2</option>
-                      <option>2GB DDR2</option>
-                      <option>2GB DDR3</option>
-                      <option>4GB DDR3</option>
-                      <option>4GB DDR4</option>
-                      <option>8GB DDR3</option>
-                      <option>8GB DDR4</option>
-                      <option>16GB DDR3</option>
-                      <option>16GB DDR4</option>
+                      <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 DIMM</option>
+                      <option>2GB DDR2 SO-DIMM</option>
+                      <option>2GB DDR2 DIMM</option>
+                      <option>4GB DDR3 SO-DIMM</option>
+                      <option>4GB DDR3 DIMM</option>
+                      <option>4GB DDR4 SO-DIMM</option>
+                      <option>4GB DDR4 DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 DIMM</option>
                     </select>
                   </div>
                 </div>
 
-                <div class="col-sm-5 mb-3">
+                <div class="col-sm-6 mb-3">
                   <label for="">RAM SLOT 02:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -275,15 +279,20 @@
                     <select class="custom-select" name="ram-slot01" id="validatedInputGroupSelect">
                       <!--<option value="">Capacidad</option>-->
                       <option>NULL</option>
-                      <option>1GB DDR2</option>
-                      <option>2GB DDR2</option>
-                      <option>2GB DDR3</option>
-                      <option>4GB DDR3</option>
-                      <option>4GB DDR4</option>
-                      <option>8GB DDR3</option>
-                      <option>8GB DDR4</option>
-                      <option>16GB DDR3</option>
-                      <option>16GB DDR4</option>
+                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 DIMM</option>
+                      <option>2GB DDR2 SO-DIMM</option>
+                      <option>2GB DDR2 DIMM</option>
+                      <option>4GB DDR3 SO-DIMM</option>
+                      <option>4GB DDR3 DIMM</option>
+                      <option>4GB DDR4 SO-DIMM</option>
+                      <option>4GB DDR4 DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 DIMM</option>
                     </select>
                   </div>
                 </div>
@@ -309,7 +318,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-8 mb-4">
                   <label for="">Procesador:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -469,7 +478,7 @@
               </div>
 
               <div class="form-row">
-                <div class="col-sm-5 mb-3">
+                <div class="col-sm-6 mb-3">
                   <label for="">RAM SLOT 01:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -477,20 +486,25 @@
                     </div>
                     <select class="custom-select" name="ram-slot00" id="ramslot00_view" disabled>
                       <!--<option value="">Capacidad</option>-->
-                      <option>1GB DDR2</option>
-                      <option>2GB DDR2</option>
-                      <option>2GB DDR3</option>
-                      <option>4GB DDR3</option>
-                      <option>4GB DDR4</option>
-                      <option>8GB DDR3</option>
-                      <option>8GB DDR4</option>
-                      <option>16GB DDR3</option>
-                      <option>16GB DDR4</option>
+                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 DIMM</option>
+                      <option>2GB DDR2 SO-DIMM</option>
+                      <option>2GB DDR2 DIMM</option>
+                      <option>4GB DDR3 SO-DIMM</option>
+                      <option>4GB DDR3 DIMM</option>
+                      <option>4GB DDR4 SO-DIMM</option>
+                      <option>4GB DDR4 DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 DIMM</option>
                     </select>
                   </div>
                 </div>
 
-                <div class="col-sm-5 mb-3">
+                <div class="col-sm-6 mb-3">
                   <label for="">RAM SLOT 02:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -499,15 +513,20 @@
                     <select class="custom-select" name="ram-slot01" id="ramslot01_view" disabled>
                       <!--<option value="">Capacidad</option>-->
                       <option>NULL</option>
-                      <option>1GB DDR2</option>
-                      <option>2GB DDR2</option>
-                      <option>2GB DDR3</option>
-                      <option>4GB DDR3</option>
-                      <option>4GB DDR4</option>
-                      <option>8GB DDR3</option>
-                      <option>8GB DDR4</option>
-                      <option>16GB DDR3</option>
-                      <option>16GB DDR4</option>
+                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 DIMM</option>
+                      <option>2GB DDR2 SO-DIMM</option>
+                      <option>2GB DDR2 DIMM</option>
+                      <option>4GB DDR3 SO-DIMM</option>
+                      <option>4GB DDR3 DIMM</option>
+                      <option>4GB DDR4 SO-DIMM</option>
+                      <option>4GB DDR4 DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 DIMM</option>
                     </select>
                   </div>
                 </div>
@@ -533,7 +552,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-8 mb-4">
                   <label for="">Procesador:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -663,7 +682,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="fact" id="fact_update" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" data-val="true" type="text" class="form-control" name="fact" id="fact_update" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
               </div>
@@ -691,7 +710,7 @@
               </div>
 
               <div class="form-row">
-                <div class="col-sm-5 mb-3">
+                <div class="col-sm-6 mb-3">
                   <label for="">RAM SLOT 01:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -699,20 +718,25 @@
                     </div>
                     <select class="custom-select" name="ram-slot00" id="ramslot00_update" required>
                       <!--<option value="">Capacidad</option>-->
-                      <option>1GB DDR2</option>
-                      <option>2GB DDR2</option>
-                      <option>2GB DDR3</option>
-                      <option>4GB DDR3</option>
-                      <option>4GB DDR4</option>
-                      <option>8GB DDR3</option>
-                      <option>8GB DDR4</option>
-                      <option>16GB DDR3</option>
-                      <option>16GB DDR4</option>
+                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 DIMM</option>
+                      <option>2GB DDR2 SO-DIMM</option>
+                      <option>2GB DDR2 DIMM</option>
+                      <option>4GB DDR3 SO-DIMM</option>
+                      <option>4GB DDR3 DIMM</option>
+                      <option>4GB DDR4 SO-DIMM</option>
+                      <option>4GB DDR4 DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 DIMM</option>
                     </select>
                   </div>
                 </div>
 
-                <div class="col-sm-5 mb-3">
+                <div class="col-sm-6 mb-3">
                   <label for="">RAM SLOT 02:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -721,15 +745,20 @@
                     <select class="custom-select" name="ram-slot01" id="ramslot01_update">
                       <!--<option value="">Capacidad</option>-->
                       <option>NULL</option>
-                      <option>1GB DDR2</option>
-                      <option>2GB DDR2</option>
-                      <option>2GB DDR3</option>
-                      <option>4GB DDR3</option>
-                      <option>4GB DDR4</option>
-                      <option>8GB DDR3</option>
-                      <option>8GB DDR4</option>
-                      <option>16GB DDR3</option>
-                      <option>16GB DDR4</option>
+                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 DIMM</option>
+                      <option>2GB DDR2 SO-DIMM</option>
+                      <option>2GB DDR2 DIMM</option>
+                      <option>4GB DDR3 SO-DIMM</option>
+                      <option>4GB DDR3 DIMM</option>
+                      <option>4GB DDR4 SO-DIMM</option>
+                      <option>4GB DDR4 DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR3 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>8GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 SO-DIMM</option>
+                      <option>16GB DDR4 DIMM</option>
                     </select>
                   </div>
                 </div>
@@ -755,7 +784,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-8 mb-4">
                   <label for="">Procesador:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
