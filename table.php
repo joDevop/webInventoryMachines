@@ -44,10 +44,10 @@
       <div id="photo">
         <img src="img/svg/dashtheme02/user.svg" alt="" />
       </div>
-      <div id="name"><span> <?php if (!isset($_SESSION['email'])) {
+      <div id="name"><span> <?php if (!isset($_SESSION["email"])) {
                               header("Location: index.php");
                             }
-                            echo $_SESSION['email']; ?> </span></div>
+                            echo $_SESSION["email"]; ?> </span></div>
 
       <div id="user-profile"><span> </span></div>
     </div>
@@ -121,6 +121,7 @@
           <tr>
             <th scope="col" style="display:none;">#ID</th>
             <th scope="col">TIPO</th>
+            <th scope="col"></th>
             <th scope="col" style="display:none;">FABRICANTE</th>
             <th scope="col" style="display:none;">MODELO</th>
             <th scope="col" style="display:none;">SERIAL</th>
@@ -133,13 +134,27 @@
             <th scope="col"><img src="img/png/anydesk.png" width="30px" alt="" />ANYDESK</th>
             <th scope="col">SEDE</th>
             <th scope="col" style="display:none;">LOCATION</th>
-            <th scope="col">FECHA DE CREACÍON</th>
+            <th scope="col" style="display:none;">FECHA DE CREACÍON</th>
+            <th scope="col" style="display:none;">LAST UPDATE</th>
             <th scope="col" style="display:none;"></th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
+        <div class="card-body">
+          <?php
+          if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
+            echo '<h2 class="bg-success text-white"> ' . $_SESSION['success'] . '</h2>';
+            unset($_SESSION['success']);
+          }
+          if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+            echo '<h2 class="bg-danger text-white"> ' . $_SESSION['status'] . '</h2>';
+            unset($_SESSION['status']);
+          }
+          ?>
+        </div>
+
         <tbody>
           <?php include_once("queryPdo.php"); ?>
           <?php foreach ($machines as $machine) { ?>
@@ -147,6 +162,7 @@
             <tr>
               <td class="text-left" id="id_machine" style="display:none;"><?php echo $machine->id_machine ?></td>
               <td style="width: 180px;"><?php echo $machine->type_machine ?></td>
+              <td><?php echo '<img src="upload/' . $machine->imagen . '" width="50px;" height="50px"' ?></td>
               <td style="display:none;"><?php echo $machine->manufacturer ?></td>
               <td style="display:none;"><?php echo $machine->model ?></td>
               <td style="display:none;"><?php echo $machine->serial ?></td>
@@ -159,7 +175,8 @@
               <td><?php echo $machine->anydesk ?></td>
               <td><?php echo $machine->campus ?></td>
               <td style="display:none;"><?php echo $machine->location ?></td>
-              <td><?php echo $machine->create_date ?></td>
+              <td style="display:none;"><?php echo $machine->create_date ?></td>
+              <td style="display:none;"><?php echo $machine->update_at ?></td>
               <td style="font-size: 10px; display:none;"><?php echo $machine->comment ?></td>
               <td><button type="button" name="view" class="btn btn-info fas fa-eye viewbtn" data-toggle="modal" data-target="#viewModal">
                 </button></td>
@@ -191,11 +208,11 @@
           </div>
           <div class="modal-body">
             <!--form-->
-            <form action="insertPdo.php" method="POST">
+            <form action="insertPdo.php" enctype="multipart/form-data" method="POST">
 
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                <label for="">Tipo de equipo:</label>
+                  <label for="">Tipo de equipo:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
@@ -205,7 +222,7 @@
                       <option>PC</option>
                       <option>ATRIL</option>
                       <option>LAPTOP</option>
-                      <option>TV RASBPEBERRY PI</option>
+                      <option>TV RASPBERRY PI</option>
                     </select>
                   </div>
                 </div>
@@ -279,7 +296,7 @@
                     <select class="custom-select" name="ram-slot01" id="validatedInputGroupSelect">
                       <!--<option value="">Capacidad</option>-->
                       <option>NULL</option>
-                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 SO-DIMM</option>
                       <option>1GB DDR2 DIMM</option>
                       <option>2GB DDR2 SO-DIMM</option>
                       <option>2GB DDR2 DIMM</option>
@@ -392,10 +409,14 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Subir imagen del equipo:</label>
+                <input type="file" class="form-control-file" name="icon" id="icon">
+              </div>
+
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Observacion:</span>
-                  <!--cambiar campo en la bd a "comment" y demas-->
                 </div>
                 <textarea class="form-control" id="" name="comment" aria-label="With textarea"></textarea>
               </div>
@@ -413,8 +434,8 @@
     </div>
 
     <!--Modal View-->
-    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade bd-example-modal-lg" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Información detallada</h5>
@@ -437,7 +458,7 @@
                       <option>PC</option>
                       <option>ATRIL</option>
                       <option>LAPTOP</option>
-                      <option>TV RASBPEBERRY PI</option>
+                      <option>TV RASPBERRY PI</option>
                     </select>
                   </div>
                 </div>
@@ -486,7 +507,7 @@
                     </div>
                     <select class="custom-select" name="ram-slot00" id="ramslot00_view" disabled>
                       <!--<option value="">Capacidad</option>-->
-                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 SO-DIMM</option>
                       <option>1GB DDR2 DIMM</option>
                       <option>2GB DDR2 SO-DIMM</option>
                       <option>2GB DDR2 DIMM</option>
@@ -513,7 +534,7 @@
                     <select class="custom-select" name="ram-slot01" id="ramslot01_view" disabled>
                       <!--<option value="">Capacidad</option>-->
                       <option>NULL</option>
-                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 SO-DIMM</option>
                       <option>1GB DDR2 DIMM</option>
                       <option>2GB DDR2 SO-DIMM</option>
                       <option>2GB DDR2 DIMM</option>
@@ -626,6 +647,28 @@
                 </div>
               </div>
 
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Fecha de creación:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="created_at" id="at_created_view" placeholder="dd-mm-yy 00:00:00" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Ultima actualización:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="update_at" id="at_update_view" placeholder="dd-mm-yy 00:00:00" aria-label="Username" aria-describedby="basic-addon2" disabled>
+                  </div>
+                </div>
+              </div>
+
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Observacion:</span>
@@ -644,8 +687,8 @@
     </div>
 
     <!-- Modal Update-->
-    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade bd-example-modal-lg" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Actualizar información</h5>
@@ -669,7 +712,7 @@
                       <option>PC</option>
                       <option>ATRIL</option>
                       <option>LAPTOP</option>
-                      <option>TV RASBPEBERRY PI</option>
+                      <option>TV RASPBERRY PI</option>
                     </select>
                   </div>
                 </div>
@@ -718,7 +761,7 @@
                     </div>
                     <select class="custom-select" name="ram-slot00" id="ramslot00_update" required>
                       <!--<option value="">Capacidad</option>-->
-                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 SO-DIMM</option>
                       <option>1GB DDR2 DIMM</option>
                       <option>2GB DDR2 SO-DIMM</option>
                       <option>2GB DDR2 DIMM</option>
@@ -745,7 +788,7 @@
                     <select class="custom-select" name="ram-slot01" id="ramslot01_update">
                       <!--<option value="">Capacidad</option>-->
                       <option>NULL</option>
-                     <option>1GB DDR2 SO-DIMM</option>
+                      <option>1GB DDR2 SO-DIMM</option>
                       <option>1GB DDR2 DIMM</option>
                       <option>2GB DDR2 SO-DIMM</option>
                       <option>2GB DDR2 DIMM</option>
@@ -855,6 +898,28 @@
                     <option>VIVA 1A IPS CASA MATRIZ</option>
                     <option>VIVA 1A IPS SURA SAN JOSE</option>
                   </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="">Fecha de creación:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="created_at" id="at_created_update" placeholder="dd-mm-yy 00:00:00" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="">Ultima modificación:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="update_at" id="at_update_update" placeholder="dd-mm-yy 00:00:00" aria-label="Username" aria-describedby="basic-addon2" disabled>
+                  </div>
                 </div>
               </div>
 

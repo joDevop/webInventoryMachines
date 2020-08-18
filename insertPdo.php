@@ -16,33 +16,49 @@ $anydesk = $_POST['anydesk'];
 $campus = $_POST['campus'];
 $location = $_POST['location'];
 $comment = $_POST['comment'];
+$icon = $_FILES["icon"]['name'];
 
 date_default_timezone_set('America/Bogota');
 $actual_date = date("Y-m-d H:i:s");
 
-$registro = $conexion->prepare("INSERT INTO table_machines(type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus,location,create_date,comment) 
-        VALUES (:type,:manufacturer,:model,:serial,:ram_slot_00,:ram_slot_01,:hard_drive,:cpu,:ip,:mac,:anydesk,:campus,:location,:actual_date,:comment);");
+if(file_exists("/upload" . $_FILES["icon"]["name"]))
+{
+    $store = $_FILES["icon"]["name"];
+    $_SESSION['status']= "image already exist '$store'";
+    header('Location: table.php');    
+}
+else
+{
 
-$registro->bindparam(':type', $type);
-$registro->bindparam(':manufacturer', $manufacturer);
-$registro->bindparam(':model', $model);
-$registro->bindparam(':serial', $serial);
-$registro->bindparam(':ram_slot_00', $ram_slot_00);
-$registro->bindparam(':ram_slot_01', $ram_slot_01);
-$registro->bindparam(':hard_drive', $hard_drive);
-$registro->bindparam(':cpu', $cpu);
-$registro->bindparam(':ip', $ip);
-$registro->bindparam(':mac', $mac);
-$registro->bindparam(':anydesk', $anydesk);
-$registro->bindparam(':campus', $campus);
-$registro->bindparam(':location', $location);
-$registro->bindparam(':actual_date', $actual_date);
-$registro->bindparam(':comment', $comment);
+    $registro = $conexion->prepare("INSERT INTO table_machines(type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus,location,create_date,imagen,comment) 
+        VALUES (:type,:manufacturer,:model,:serial,:ram_slot_00,:ram_slot_01,:hard_drive,:cpu,:ip,:mac,:anydesk,:campus,:location,:actual_date,:icon,:comment);");
 
-if ($registro->execute()) {
-    return header("Location:table.php");
-} else {
-    return "error";
+    $registro->bindparam(':type', $type);
+    $registro->bindparam(':manufacturer', $manufacturer);
+    $registro->bindparam(':model', $model);
+    $registro->bindparam(':serial', $serial);
+    $registro->bindparam(':ram_slot_00', $ram_slot_00);
+    $registro->bindparam(':ram_slot_01', $ram_slot_01);
+    $registro->bindparam(':hard_drive', $hard_drive);
+    $registro->bindparam(':cpu', $cpu);
+    $registro->bindparam(':ip', $ip);
+    $registro->bindparam(':mac', $mac);
+    $registro->bindparam(':anydesk', $anydesk);
+    $registro->bindparam(':campus', $campus);
+    $registro->bindparam(':location', $location);
+    $registro->bindparam(':actual_date', $actual_date);
+    $registro->bindparam(':comment', $comment);
+    $registro->bindparam(':icon', $icon);
+
+    if ($registro->execute()) {
+        move_uploaded_file($_FILES["icon"]["tmp_name"], "/upload" . $_FILES["icon"]["name"]);
+        //$_SESSION['success'] = "image was uploaded successfully!";
+        return header("Location:table.php");
+    } else {
+        $_SESSION['success'] = "uppps!... there was an error while uploading the image";
+        return header("Location:table.php");
+    }
+
 }
 
 ?>

@@ -15,10 +15,11 @@ $ip = $_POST['ip'];
 $mac = $_POST['mac'];
 $anydesk = $_POST['anydesk'];
 $campus = $_POST['campus'];
+$update_at = $_POST['update_at'];
 $location = $_POST['location'];
 $comment = $_POST['comment'];
 
-$registro = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,comment=:comment_update WHERE id_machine=:id_update");
+$registro = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,comment=:comment_update WHERE id_machine=:id_update");
 //por 'id' en html
 $registro->bindparam(':id_update', $id);
 $registro->bindparam(':type_update', $type);
@@ -33,6 +34,7 @@ $registro->bindparam(':ip_update', $ip);
 $registro->bindparam(':mac_update', $mac);
 $registro->bindparam(':anydesk_update', $anydesk);
 $registro->bindparam(':campus_update', $campus);
+$registro->bindparam(':at_update_update', $update_at);
 $registro->bindparam(':location_update', $location);
 $registro->bindparam(':comment_update', $comment);
 
