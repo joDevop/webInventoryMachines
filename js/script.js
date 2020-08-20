@@ -43,7 +43,7 @@ $(".updatebtn").on("click", function () {
     $("#location_update").val(datos[14]);
     $("#at_created_update").val(datos[15]);
     $("#at_update_update").val(datos[16]);
-    $("#comment_update").val(datos[17]);
+    $("#comment_update").val(datos[18]);
 
 });
 

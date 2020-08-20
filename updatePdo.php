@@ -16,10 +16,13 @@ $mac = $_POST['mac'];
 $anydesk = $_POST['anydesk'];
 $campus = $_POST['campus'];
 $update_at = $_POST['update_at'];
+$icon_img = $_FILES["icon"]['tmp_name'];
 $location = $_POST['location'];
 $comment = $_POST['comment'];
 
-$registro = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,comment=:comment_update WHERE id_machine=:id_update");
+$path = "upload/";
+
+$registro = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,imagen=:icon_update,comment=:comment_update WHERE id_machine=:id_update");
 //por 'id' en html
 $registro->bindparam(':id_update', $id);
 $registro->bindparam(':type_update', $type);
@@ -35,10 +38,12 @@ $registro->bindparam(':mac_update', $mac);
 $registro->bindparam(':anydesk_update', $anydesk);
 $registro->bindparam(':campus_update', $campus);
 $registro->bindparam(':at_update_update', $update_at);
+$registro->bindparam(':icon_update', $icon_img);
 $registro->bindparam(':location_update', $location);
 $registro->bindparam(':comment_update', $comment);
 
 if ($registro->execute()) {
+    move_uploaded_file($_FILES["icon"]["tmp_name"], $path .$_FILES["icon"]["tmp_name"]);
     return header("Location:table.php");
 } else {
     return "error";

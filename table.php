@@ -698,7 +698,7 @@
           </div>
           <div class="modal-body">
             <!--form-->
-            <form action="updatePdo.php" method="POST">
+            <form action="updatePdo.php" enctype="multipart/form-data" method="POST">
               <input type="hidden" name="id" id="update_id">
 
               <div class="form-row">
@@ -921,6 +921,11 @@
                     <input type="text" class="form-control" name="update_at" id="at_update_update" placeholder="dd-mm-yy 00:00:00" aria-label="Username" aria-describedby="basic-addon2" disabled>
                   </div>
                 </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Actualizar imagen del equipo:</label>
+                <input type="file" class="form-control-file" name="icon" id="icon_update">
               </div>
 
               <div class="input-group">
