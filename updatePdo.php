@@ -44,9 +44,15 @@ $registro->bindparam(':comment_update', $comment);
 
 if ($registro->execute()) {
     move_uploaded_file($_FILES["icon"]["tmp_name"], $path .$_FILES["icon"]["tmp_name"]);
+    $conexion->commit();
+    $conexion->null;
     return header("Location:table.php");
+    exit;
 } else {
+    $conexion->commit();
+    $conexion->null;
     return "error";
+    exit;
 }
 
 ?>

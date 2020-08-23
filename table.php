@@ -122,6 +122,7 @@
             <th scope="col" style="display:none;">#ID</th>
             <th scope="col">TIPO</th>
             <th scope="col"></th>
+            <!--column icon btn-->
             <th scope="col" style="display:none;">FABRICANTE</th>
             <th scope="col" style="display:none;">MODELO</th>
             <th scope="col" style="display:none;">SERIAL</th>
@@ -138,8 +139,11 @@
             <th scope="col" style="display:none;">LAST UPDATE</th>
             <th scope="col" style="display:none;"></th>
             <th scope="col"></th>
+            <!--column view btn-->
             <th scope="col"></th>
+            <!--column update btn-->
             <th scope="col"></th>
+            <!--column delete btn-->
           </tr>
         </thead>
         <div class="card-body">
@@ -160,7 +164,7 @@
           <?php foreach ($machines as $machine) { ?>
 
             <tr>
-              <td class="text-left" id="id_machine" style="display:none;"><?php echo $machine->id_machine ?></td>
+              <td class="text-left" id="row-count" style="display:none;"><?php echo $machine->id_machine ?></td>
               <td style="width: 180px;"><?php echo $machine->type_machine ?></td>
               <td><?php echo '<img src="upload/' . $machine->imagen . '" width="50px;" height="50px"' ?></td>
               <td style="display:none;"><?php echo $machine->manufacturer ?></td>
@@ -197,8 +201,8 @@
     <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
 
     <!-- Modal Insert-->
-    <div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade bd-example-modal-lg" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Registrar nuevo equipo</h5>
@@ -233,7 +237,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="name-input" name="fact" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" id="name-input" name="fact" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
               </div>
@@ -245,7 +249,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-pencil-ruler"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="model" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="model" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
 
@@ -255,7 +259,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-tag"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="serial" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="serial" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
                   </div>
                 </div>
               </div>
@@ -341,7 +345,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-microchip"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="cpu" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="cpu" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                 </div>
               </div>
@@ -363,7 +367,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="mac" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon2" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="mac" placeholder="00-00-00-00-00" aria-label="Username" aria-describedby="basic-addon2" required>
                   </div>
                 </div>
               </div>
@@ -385,7 +389,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><img src="img/svg/aim.svg" width="20px" alt="" /></span>
                     </div>
-                    <input type="text" class="form-control" name="location" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="location" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
                   </div>
                 </div>
               </div>
@@ -725,7 +729,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-wrench"></i></span>
                     </div>
-                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" data-val="true" type="text" class="form-control" name="fact" id="fact_update" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="fact" id="fact_update" placeholder="HP" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
               </div>
@@ -737,7 +741,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-pencil-ruler"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="model" id="model_update" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="model" id="model_update" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
 
@@ -747,7 +751,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-tag"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="serial" id="serial_update" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="serial" id="serial_update" placeholder="S/N" aria-label="Username" aria-describedby="basic-addon2" required>
                   </div>
                 </div>
               </div>
@@ -833,7 +837,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-microchip"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="cpu" id="cpu_update" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="cpu" id="cpu_update" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                 </div>
               </div>
@@ -855,7 +859,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="mac" id="mac_update" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon2" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="mac" id="mac_update" placeholder="00-00-00-00-00" aria-label="Username" aria-describedby="basic-addon2" required>
                   </div>
                 </div>
               </div>
@@ -877,7 +881,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><img src="img/svg/aim.svg" width="20px" alt="" /></span>
                     </div>
-                    <input type="text" class="form-control" name="location" id="location_update" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
+                    <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="location" id="location_update" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
                   </div>
                 </div>
               </div>
