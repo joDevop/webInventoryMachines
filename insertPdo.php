@@ -24,11 +24,11 @@ $path = "upload/$rename_icon";
 date_default_timezone_set('America/Bogota');
 $actual_date = date("Y-m-d H:i:s");
 
-    $stmt = $conexion->prepare("SELECT ip_range,mac_address FROM table_machines WHERE ip_range = :ip");
-    $stmt->bindParam(':ip', $ip);
-    $stmt->execute();
+    $if_does_exist_ip = $conexion->prepare("SELECT ip_range,mac_address FROM table_machines WHERE ip_range = :ip");
+    $if_does_exist_ip->bindParam(':ip', $ip);
+    $if_does_exist_ip->execute();
 
-    if($stmt->rowCount() > 0)
+    if($if_does_exist_ip->rowCount() > 0)
     {
     $_SESSION['status'] = "IP already exist '$ip'";
     return header("Location:table.php");
@@ -44,27 +44,27 @@ if(file_exists($path . $rename_icon))
 }
 else
 {
-    $registro = $conexion->prepare("INSERT INTO table_machines(type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus,location,create_date,imagen,comment) 
+    $insert_data = $conexion->prepare("INSERT INTO table_machines(type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus,location,create_date,imagen,comment) 
         VALUES (:type,:manufacturer,:model,:serial,:ram_slot_00,:ram_slot_01,:hard_drive,:cpu,:ip,:mac,:anydesk,:campus,:location,:actual_date,:icon,:comment);");
 
-    $registro->bindparam(':type', $type, PDO::PARAM_STR);
-    $registro->bindparam(':manufacturer', $manufacturer, PDO::PARAM_STR);
-    $registro->bindparam(':model', $model, PDO::PARAM_STR);
-    $registro->bindparam(':serial', $serial, PDO::PARAM_STR);
-    $registro->bindparam(':ram_slot_00', $ram_slot_00, PDO::PARAM_STR);
-    $registro->bindparam(':ram_slot_01', $ram_slot_01, PDO::PARAM_STR);
-    $registro->bindparam(':hard_drive', $hard_drive, PDO::PARAM_STR);
-    $registro->bindparam(':cpu', $cpu, PDO::PARAM_STR);
-    $registro->bindparam(':ip', $ip, PDO::PARAM_STR);
-    $registro->bindparam(':mac', $mac, PDO::PARAM_STR);
-    $registro->bindparam(':anydesk', $anydesk, PDO::PARAM_STR);
-    $registro->bindparam(':campus', $campus, PDO::PARAM_STR);
-    $registro->bindparam(':location', $location, PDO::PARAM_STR);
-    $registro->bindparam(':actual_date', $actual_date, PDO::PARAM_STR);
-    $registro->bindparam(':comment', $comment, PDO::PARAM_STR);
-    $registro->bindparam(':icon', $icon);
+    $insert_data->bindparam(':type', $type, PDO::PARAM_STR);
+    $insert_data->bindparam(':manufacturer', $manufacturer, PDO::PARAM_STR);
+    $insert_data->bindparam(':model', $model, PDO::PARAM_STR);
+    $insert_data->bindparam(':serial', $serial, PDO::PARAM_STR);
+    $insert_data->bindparam(':ram_slot_00', $ram_slot_00, PDO::PARAM_STR);
+    $insert_data->bindparam(':ram_slot_01', $ram_slot_01, PDO::PARAM_STR);
+    $insert_data->bindparam(':hard_drive', $hard_drive, PDO::PARAM_STR);
+    $insert_data->bindparam(':cpu', $cpu, PDO::PARAM_STR);
+    $insert_data->bindparam(':ip', $ip, PDO::PARAM_STR);
+    $insert_data->bindparam(':mac', $mac, PDO::PARAM_STR);
+    $insert_data->bindparam(':anydesk', $anydesk, PDO::PARAM_STR);
+    $insert_data->bindparam(':campus', $campus, PDO::PARAM_STR);
+    $insert_data->bindparam(':location', $location, PDO::PARAM_STR);
+    $insert_data->bindparam(':actual_date', $actual_date, PDO::PARAM_STR);
+    $insert_data->bindparam(':comment', $comment, PDO::PARAM_STR);
+    $insert_data->bindparam(':icon', $icon);
 
-    if ($registro->execute()) {
+    if ($insert_data->execute()) {
         move_uploaded_file($_FILES["icon"]["tmp_name"], $path . $rename_icon);
         //$_SESSION['success'] = "image was uploaded successfully!";
         //$conexion->commit();

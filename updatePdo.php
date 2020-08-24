@@ -22,27 +22,27 @@ $comment = $_POST['comment'];
 
 $path = "upload/";
 
-$registro = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,imagen=:icon_update,comment=:comment_update WHERE id_machine=:id_update");
+$update_data = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,imagen=:icon_update,comment=:comment_update WHERE id_machine=:id_update");
 //por 'id' en html
-$registro->bindparam(':id_update', $id);
-$registro->bindparam(':type_update', $type);
-$registro->bindparam(':fact_update', $manufacturer);
-$registro->bindparam(':model_update', $model);
-$registro->bindparam(':serial_update', $serial);
-$registro->bindparam(':ramslot00_update', $ram_slot_00);
-$registro->bindparam(':ramslot01_update', $ram_slot_01);
-$registro->bindparam(':disk_update', $hard_drive);
-$registro->bindparam(':cpu_update', $cpu);
-$registro->bindparam(':ip_update', $ip);
-$registro->bindparam(':mac_update', $mac);
-$registro->bindparam(':anydesk_update', $anydesk);
-$registro->bindparam(':campus_update', $campus);
-$registro->bindparam(':at_update_update', $update_at);
-$registro->bindparam(':icon_update', $icon_img);
-$registro->bindparam(':location_update', $location);
-$registro->bindparam(':comment_update', $comment);
+$update_data->bindparam(':id_update', $id);
+$update_data->bindparam(':type_update', $type);
+$update_data->bindparam(':fact_update', $manufacturer);
+$update_data->bindparam(':model_update', $model);
+$update_data->bindparam(':serial_update', $serial);
+$update_data->bindparam(':ramslot00_update', $ram_slot_00);
+$update_data->bindparam(':ramslot01_update', $ram_slot_01);
+$update_data->bindparam(':disk_update', $hard_drive);
+$update_data->bindparam(':cpu_update', $cpu);
+$update_data->bindparam(':ip_update', $ip);
+$update_data->bindparam(':mac_update', $mac);
+$update_data->bindparam(':anydesk_update', $anydesk);
+$update_data->bindparam(':campus_update', $campus);
+$update_data->bindparam(':at_update_update', $update_at);
+$update_data->bindparam(':icon_update', $icon_img);
+$update_data->bindparam(':location_update', $location);
+$update_data->bindparam(':comment_update', $comment);
 
-if ($registro->execute()) {
+if ($update_data->execute()) {
     move_uploaded_file($_FILES["icon"]["tmp_name"], $path .$_FILES["icon"]["tmp_name"]);
     $conexion->commit();
     $conexion->null;
