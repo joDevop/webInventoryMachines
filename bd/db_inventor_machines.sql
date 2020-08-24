@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-08-2020 a las 06:20:18
+-- Tiempo de generación: 24-08-2020 a las 05:35:41
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -82,11 +82,35 @@ INSERT INTO `table_machines` (`id_machine`, `type_machine`, `manufacturer`, `mod
 (25, 'TV RASPBERRY PI', NULL, NULL, '', NULL, NULL, NULL, NULL, '192.168.12.100', 'B8:27:EB:63:99', NULL, 'VIVA 1A IPS CALLE 30', '', '2020-06-12 21:11:06', '2020-08-18 03:03:46', 'raspberry.png', NULL, NULL),
 (26, 'TV RASPBERRY PI', NULL, NULL, '', NULL, NULL, NULL, NULL, '192.168.12.101', 'B8:27:EB:63:DA', NULL, 'VIVA 1A IPS CALLE 30', '', '2020-08-12 21:19:19', '2020-08-18 03:03:46', 'raspberry.png', NULL, NULL),
 (27, 'TV RASPBERRY PI', NULL, NULL, '', NULL, NULL, NULL, NULL, '192.168.16.26', '', NULL, 'VIVA 1A IPS CARRERA 16', '', '2020-06-12 21:11:06', '2020-08-18 03:03:46', 'raspberry.png', NULL, NULL),
-(28, 'TV RASPBERRY PI', NULL, NULL, '', NULL, NULL, NULL, NULL, '192.168.16.28', '', NULL, 'VIVA 1A IPS CARRERA 16', '', '2020-06-12 21:11:06', '2020-08-18 03:03:46', 'raspberry.png', NULL, NULL),
-(29, 'ATRIL', NULL, NULL, '', NULL, NULL, NULL, NULL, '192.168.16.25', 'FC:3F:DB:0A:D2', NULL, 'VIVA 1A IPS CARRERA 16', '', '2020-06-12 21:11:06', '2020-08-18 02:57:15', 'kiosk.png', NULL, NULL),
-(30, 'ATRIL', NULL, NULL, '', NULL, NULL, NULL, NULL, '192.168.16.30', '6C:4B:90:67:9F', NULL, 'VIVA 1A IPS CARRERA 16', '', '2020-06-12 21:11:06', '2020-08-18 02:57:15', 'kiosk.png', NULL, NULL),
-(35, 'PC', 'LENOVO              ', 'THINKCENTRE ALL IN ONE', 'XYZ12345', '4GB DDR3 SO-DIMM', '4GB DDR3 SO-DIMM', '500GB', 'INTEL I5', '192.168.71.240', '98:EE:CB:25:1F', '465 562 426', 'VIVA 1A IPS MACARENA', 'OFICINA DE SISTEMAS', '2020-08-14 05:45:05', '2020-08-18 04:06:53', 'pc.png', NULL, '\r\n                '),
-(47, 'TV RASPBERRY PI', 'HP', 'PRODESK G4', '1564613', '4GB DDR3 SO-DIMM', 'NULL', '250GB', 'INTEL CELERON', '192.168.200.100', 'R5:H8:0Y:K9:O9', '46556226', 'VIVA 1A IPS CARRERA 16', 'LA PARRILLA', '2020-08-18 04:07:24', '2020-08-18 04:07:24', '', NULL, '');
+(28, 'TV RASPBERRY PI', NULL, NULL, '', NULL, NULL, NULL, NULL, '192.168.16.28', '', NULL, 'VIVA 1A IPS CARRERA 16', '', '2020-06-12 21:11:06', '2020-08-18 03:03:46', 'raspberry.png', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `table_user_tec`
+--
+
+CREATE TABLE `table_user_tec` (
+  `id` int(3) NOT NULL,
+  `id_user_tec` int(3) DEFAULT NULL,
+  `nickname_tec` varchar(20) NOT NULL,
+  `name_tec` varchar(256) DEFAULT NULL,
+  `last_name_tec` varchar(256) DEFAULT NULL,
+  `campus_tec` varchar(256) DEFAULT NULL,
+  `position_job` varchar(256) DEFAULT NULL,
+  `email_tec` varchar(256) NOT NULL,
+  `password_tec` varchar(256) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `test` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `table_user_tec`
+--
+
+INSERT INTO `table_user_tec` (`id`, `id_user_tec`, `nickname_tec`, `name_tec`, `last_name_tec`, `campus_tec`, `position_job`, `email_tec`, `password_tec`, `active`, `test`) VALUES
+(1, 100, 'jortega', 'Jefferson Javier', 'Ortega Pacheco', 'VIVA 1A MACARENA', 'Support IT', 'jortega@viva1a.com.co', '.jortega', 0, NULL),
+(2, NULL, '', NULL, NULL, NULL, 'systems technician IT', 'jmendoza@viva1a.com.co', '.jmendoza', 0, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -99,6 +123,12 @@ ALTER TABLE `table_machines`
   ADD PRIMARY KEY (`id_machine`);
 
 --
+-- Indices de la tabla `table_user_tec`
+--
+ALTER TABLE `table_user_tec`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -106,7 +136,13 @@ ALTER TABLE `table_machines`
 -- AUTO_INCREMENT de la tabla `table_machines`
 --
 ALTER TABLE `table_machines`
-  MODIFY `id_machine` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_machine` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+
+--
+-- AUTO_INCREMENT de la tabla `table_user_tec`
+--
+ALTER TABLE `table_user_tec`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
