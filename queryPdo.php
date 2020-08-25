@@ -11,12 +11,10 @@ $total = $query00->rowCount();
 
 foreach ($machines as $row);
 
-$query01 = $conexion->query("SELECT id,nickname_tec,campus_tec,position_job FROM table_user_tec");
+$query01 = $conexion->query("SELECT id_tec,nickname_tec,campus_tec,position_job FROM table_user_tec");
 $tec_users = $query01->fetchAll(PDO::FETCH_OBJ);
 
 foreach ($tec_users as $row);
 
 //$query03 = $conexion->query("SELECT count(1) FROM table_user_tec");
 //echo $query03->fetchColumn();
-
-?>

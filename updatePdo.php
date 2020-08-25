@@ -16,13 +16,13 @@ $mac = $_POST['mac'];
 $anydesk = $_POST['anydesk'];
 $campus = $_POST['campus'];
 $update_at = $_POST['update_at'];
-$icon_img = $_FILES["icon"]['tmp_name'];
+//$icon_img = $_FILES["icon"]['tmp_name'];
 $location = $_POST['location'];
 $comment = $_POST['comment'];
 
 $path = "upload/";
 
-$update_data = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,imagen=:icon_update,comment=:comment_update WHERE id_machine=:id_update");
+$update_data = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,comment=:comment_update WHERE id_machine=:id_update");
 //por 'id' en html
 $update_data->bindparam(':id_update', $id);
 $update_data->bindparam(':type_update', $type);
@@ -38,21 +38,17 @@ $update_data->bindparam(':mac_update', $mac);
 $update_data->bindparam(':anydesk_update', $anydesk);
 $update_data->bindparam(':campus_update', $campus);
 $update_data->bindparam(':at_update_update', $update_at);
-$update_data->bindparam(':icon_update', $icon_img);
+//$update_data->bindparam(':icon_update', $icon_img);
 $update_data->bindparam(':location_update', $location);
 $update_data->bindparam(':comment_update', $comment);
 
 if ($update_data->execute()) {
-    move_uploaded_file($_FILES["icon"]["tmp_name"], $path .$_FILES["icon"]["tmp_name"]);
-    $conexion->commit();
+    //move_uploaded_file($_FILES["icon"]["tmp_name"], $path .$_FILES["icon"]["tmp_name"]);
     $conexion->null;
     return header("Location:table.php");
     exit;
 } else {
-    $conexion->commit();
     $conexion->null;
     return "error";
     exit;
 }
-
-?>

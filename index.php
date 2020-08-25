@@ -24,32 +24,32 @@
         <div class="header">
             <img src="img/svg/ic_seo-and-web.svg">
         </div>
-        
-        <!--<?php if(isset($message)) {?>
+
+        <!--<?php if (isset($message)) { ?>
         <div class="mtop16 alert alert-danger alert-dismissible fade show text-center">
             <?php echo $_SESSION['message'] ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <?php }?>-->
+        <?php } ?>-->
 
         <?php
 
         if (isset($message)) {
-            echo '<div class="mtop16 text-center"><label class="text-danger text-center">'.$message.'</label></div>';
+            echo '<div class="mtop16 text-center"><label class="text-danger text-center">' . $message . '</label></div>';
         }
 
         ?>
 
         <div class="inside">
             <form method="POST">
-                <label for="email">Correo Electrónico:</label>
+                <label for="nickname">Usuario:</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                        <div class="input-group-text"><i class="fas fa-id-badge"></i></div>
                     </div>
-                    <input type="email" class="form-control" name="email" aria-label="Username" aria-describedby="basic-addon1" value="jortega@viva1a.com.co" required>
+                    <input type="text" class="form-control" name="nickname" aria-label="Username" aria-describedby="basic-addon1" value="jortega" required>
                 </div>
 
                 <label for="password" class="mtop16">Password:</label>

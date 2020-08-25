@@ -44,10 +44,10 @@
       <div id="photo">
         <img src="img/svg/dashtheme02/user.svg" alt="" />
       </div>
-      <div id="name"><span> <?php if (!isset($_SESSION["email"])) {
+      <div id="name"><span> <?php if (!isset($_SESSION["nickname"])) {
                               header("Location: index.php");
                             }
-                            echo $_SESSION["email"]; ?> </span></div>
+                            echo $_SESSION["nickname"]; ?> </span></div>
 
       <div id="user-profile"><span> </span></div>
     </div>

@@ -1,59 +1,59 @@
-body{
-    background-color: #f6f6f6;
+body {
+  background-color: #f6f6f6;
 }
 
-.box{
-background-color:#fff;
-border-radius:8px;
-border:1px solid #d6d6d6;
-position:absolute;
-width:500px
+.box {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #d6d6d6;
+  position: absolute;
+  width: 500px;
 }
 
-.inside{
-    padding:16px;
+.inside {
+  padding: 16px;
 }
 
-.header{
-    background-color:rgb(235, 235, 235);
-    border-radius:8px 8px 0 0;
-    padding:16px;
+.header {
+  background-color: rgb(235, 235, 235);
+  border-radius: 8px 8px 0 0;
+  padding: 16px;
 }
 
-.header img{
-    display:block;
-    margin:0 auto;
-    width:46%;
+.header img {
+  display: block;
+  margin: 0 auto;
+  width: 46%;
 }
 
-.mtop16{
-    margin-top:16px;
+.mtop16 {
+  margin-top: 16px;
 }
 
-.btn-success{
-    border:0;
-    width:100%;
+.btn-success {
+  border: 0;
+  width: 100%;
 }
 
-.box_login{
-    left:calc(50% - 250px);
-    top:calc(50% - 244px);
+.box_login {
+  left: calc(50% - 250px);
+  top: calc(50% - 244px);
 }
 
-.box_register{
-    left:calc(50% - 250px);
-    top:calc(50% - 384px);
+.box_register {
+  left: calc(50% - 250px);
+  top: calc(50% - 384px);
 }
 
-.footer{
-    text-align:center;
+.footer {
+  text-align: center;
 }
 
-.footer a{
-    display:inline-block;
-    font-size:.8em;
+.footer a {
+  display: inline-block;
+  font-size: 0.8em;
 }
 
-.footer a:last-child{
-    margin-left:24px;
+.footer a:last-child {
+  margin-left: 24px;
 }
