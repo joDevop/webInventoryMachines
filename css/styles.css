@@ -7,7 +7,7 @@ body {
   border-radius: 8px;
   border: 1px solid #d6d6d6;
   position: absolute;
-  width: 500px;
+  width: 350px;
 }
 
 .inside {
@@ -36,8 +36,8 @@ body {
 }
 
 .box_login {
-  left: calc(50% - 250px);
-  top: calc(50% - 244px);
+  left: calc(50% - 175px);
+  top: calc(50% - 229px);
 }
 
 .box_register {

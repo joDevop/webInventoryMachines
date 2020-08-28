@@ -49,7 +49,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-id-badge"></i></div>
                     </div>
-                    <input type="text" class="form-control" name="nickname" aria-label="Username" aria-describedby="basic-addon1" value="jortega" required>
+                    <input type="text" class="form-control" name="nickname" aria-label="Username" aria-describedby="basic-addon1" value="" required>
                 </div>
 
                 <label for="password" class="mtop16">Password:</label>
@@ -57,7 +57,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-key"></i></div>
                     </div>
-                    <input type="password" class="form-control" name="password" aria-label="Username" aria-describedby="basic-addon1" value=".jortega" required>
+                    <input type="password" class="form-control" name="password" aria-label="Username" aria-describedby="basic-addon1" value="" required>
                 </div>
 
                 <input type="submit" name="login" class="btn btn-success mtop16" value="Acceder" />
