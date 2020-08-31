@@ -27,7 +27,7 @@
 
         <!--<?php if (isset($message)) { ?>
         <div class="mtop16 alert alert-danger alert-dismissible fade show text-center">
-            <?php echo $_SESSION['message'] ?>
+            <?php echo $message ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

@@ -1,4 +1,17 @@
 <?php include("./config/connectionDb.php"); ?>
+<?php include("login.php"); ?>
+<?php include("logout.php"); ?>
+<?php
+//session_start();
+$nombreUsuario = $_SESSION['nombre_usuario'];
+
+$conectados = $conexion->prepare("SELECT * FROM table_user_tec WHERE status=1");
+$conectados->execute();
+
+$detallesU = $conexion->prepare("SELECT * FROM table_user_tec WHERE nickname_tec=:nombreUsuario");
+$detallesU->bindParam(':nombreUsuario', $nombreUsuario, PDO::PARAM_STR);
+$detallesU->execute();
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -17,9 +30,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <script src="https://kit.fontawesome.com/bb00059a3e.js" crossorigin="anonymous"></script>
+  <script>
+    setTimeout('document.location.reload()', 180000);
+  </script> <!-- TIEMPO EN MILISEGUNDOS PARA QUE LA PÁG SE RECARGUE TRAS INACTIVIDAD-->
+
   <script language="javascript" type="text/javascript">
     window.history.forward();
   </script>
+
   <link rel="stylesheet" type="text/css" href="css/styles_session.css" />
   <link rel="stylesheet" type="text/css" href="css/styles.sidebar.css" />
 
@@ -44,12 +62,14 @@
       <div id="photo">
         <img src="img/svg/dashtheme02/user.svg" alt="" />
       </div>
-      <div id="name"><span> <?php if (!isset($_SESSION["nickname"])) {
-                              header("Location: index.php");
-                            }
-                            echo $_SESSION["nickname"]; ?> </span></div>
+      <div id="name"><span> <?php echo $nombreUsuario; ?> </span>
+      </div>
 
-      <div id="user-profile"><span> </span></div>
+      <div id="user-profile"><span>
+          <?php $showInfoUser = $detallesU->fetch(PDO::FETCH_ASSOC);
+          echo $showInfoUser['campus_tec']; ?>
+        </span>
+      </div>
     </div>
 
     <div id="menu-items">
@@ -92,12 +112,10 @@
       <div class="item separator"></div>
 
       <div class="item">
-        <a href="logout.php">
-          <div class="icon">
-            <img src="img/svg/dashtheme02/exit.svg" alt="" />
-          </div>
-          <div class="title"><span>Logout</span></div>
-        </a>
+        <form method="post" action="logout.php">
+          <button type="submit" class="btn btn-secondary icon" name="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+          <span class="title">Logout</span>
+        </form>
       </div>
     </div>
   </div>

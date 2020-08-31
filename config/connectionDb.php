@@ -1,9 +1,8 @@
 <?php
 // <development db> //
-session_start();
 $servername = "localhost";
-$username = "webmaster@inventor";
-$password = "1143434718";
+$username = "root";
+$password = "";
 
 try {
     $conexion = new PDO("mysql:host=$servername;dbname=db_inventor_machines", $username, $password);
@@ -18,3 +17,5 @@ try {
 }
 
 return $conexion;
+
+?>

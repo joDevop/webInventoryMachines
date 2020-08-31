@@ -1,0 +1,9 @@
+{
+    "conection":{
+        "server" : "localhost",
+        "user" : "root",
+        "password" : "",
+        "database" : "db_inventor_machines",
+        "port" : "3306"
+    }
+}

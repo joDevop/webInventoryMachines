@@ -18,3 +18,8 @@ foreach ($tec_users as $row);
 
 //$query03 = $conexion->query("SELECT count(1) FROM table_user_tec");
 //echo $query03->fetchColumn();
+
+$conexion = null;
+
+?>
+
