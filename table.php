@@ -31,7 +31,7 @@ $detallesU->execute();
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <script src="https://kit.fontawesome.com/bb00059a3e.js" crossorigin="anonymous"></script>
   <script>
-    setTimeout('document.location.reload()', 180000);
+    setTimeout('document.location.reload()', 1800000);
   </script> <!-- TIEMPO EN MILISEGUNDOS PARA QUE LA PÁG SE RECARGUE TRAS INACTIVIDAD-->
 
   <script language="javascript" type="text/javascript">
@@ -397,7 +397,7 @@ $detallesU->execute();
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
                     </div>
-                    <input type="text" class="form-control" name="anydesk" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input type="text" class="form-control" name="anydesk" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                 </div>
 
@@ -889,7 +889,7 @@ $detallesU->execute();
                     <div class="input-group-prepend">
                       <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
                     </div>
-                    <input type="text" class="form-control" name="anydesk" id="anydesk_update" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <input type="text" class="form-control" name="anydesk" id="anydesk_update" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                 </div>
 

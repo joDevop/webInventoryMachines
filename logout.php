@@ -29,7 +29,7 @@ if (isset($_POST['logout-btn'])) {
 //Comprobamos si esta definida la sesión 'tiempo'.
 if (isset($_SESSION['tiempo'])) {
     //Variable que define el tiempo de inactividad en segundos
-    $inactivo = 180;
+    $inactivo = 1800;
     //Calcular el tiempo de inactividad
     $vida_session = time() - $_SESSION['tiempo'];
     //Comprobar si el tiempo de vida de la sesión es mayor a tiempo de inactividad
@@ -52,5 +52,3 @@ if (isset($_SESSION['tiempo'])) {
     //Activamos sesion tiempo.
     $_SESSION['tiempo'] = time();
 }
-
-?>
