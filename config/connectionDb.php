@@ -1,5 +1,6 @@
 <?php
 // <development db> //
+//session_start();
 $servername = "localhost";
 $username = "webmaster@inventor";
 $password = "1143434718";

@@ -20,6 +20,7 @@ $location = $_POST['location'];
 $comment = $_POST['comment'];
 $icon = $_FILES["icon"]['name'];
 $nombreUsuario = $_SESSION['nombre_usuario'];
+$idUsuario = $_SESSION['id_usuario'];
 
 $rename_icon = md5(rand()) . '.' . $icon;
 $path = "upload/$rename_icon";
@@ -34,6 +35,9 @@ $if_does_exist_ip->execute();
 if ($if_does_exist_ip->rowCount() > 0) {
     $_SESSION['status'] = "this IP already exist '$ip'";
     return header("Location:table.php");
+} 
+if (filter_var($ip, FILTER_VALIDATE_IP)) {
+    echo "Esta dirección IP '.$ip.' es válida.";
 }
 $if_does_exist_serial = $conexion->prepare("SELECT serial FROM table_machines WHERE serial = :serial");
 $if_does_exist_serial->bindParam(':serial', $serial);
@@ -58,9 +62,10 @@ else
         $_SESSION['status'] = "image already exist '$rename_icon'";
         return header("Location:table.php");
     } else {
-        $insert_data = $conexion->prepare("INSERT INTO table_machines(registered_by,type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus,location,create_date,imagen,comment) 
-        VALUES (:nombreUsuario,:type,:manufacturer,:model,:serial,:ram_slot_00,:ram_slot_01,:hard_drive,:cpu,:ip,:mac,:anydesk,:campus,:location,:actual_date,:icon,:comment);");
+        $insert_data = $conexion->prepare("INSERT INTO table_machines(tec_id,registered_by,type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus,location,create_date,imagen,comment) 
+        VALUES (:idUsuario,:nombreUsuario,:type,:manufacturer,:model,:serial,:ram_slot_00,:ram_slot_01,:hard_drive,:cpu,:ip,:mac,:anydesk,:campus,:location,:actual_date,:icon,:comment);");
 
+        $insert_data->bindparam(':idUsuario', $idUsuario);        
         $insert_data->bindparam(':nombreUsuario', $nombreUsuario, PDO::PARAM_STR);
         $insert_data->bindparam(':type', $type, PDO::PARAM_STR);
         $insert_data->bindparam(':manufacturer', $manufacturer, PDO::PARAM_STR);
@@ -82,10 +87,7 @@ else
         if ($insert_data->execute()) {
             move_uploaded_file($_FILES["icon"]["tmp_name"], $path . $rename_icon);
             //$_SESSION['success'] = "image was uploaded successfully!";
-            //$conexion->commit();
-            $conexion->null;
             return header("Location:table.php");
-            exit;
         } else {
             $_SESSION['success'] = "uppps!... there was an error while uploading the image";
             $conexion->null;

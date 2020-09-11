@@ -29,6 +29,7 @@ if (isset($data["login"])) {
             $infoUser = $queryUser->fetch(PDO::FETCH_ASSOC);
             session_start();
             $_SESSION['nombre_usuario']=$infoUser['nickname_tec'];
+            $_SESSION['id_usuario'] = $infoUser['id_tec'];
 
         } else {
             $message = '<label>Username OR Password is wrong</label>';
