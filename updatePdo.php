@@ -1,6 +1,9 @@
 <?php
 include_once("./config/connectionDb.php");
 
+include("login.php");
+session_start();
+
 //por 'name' en html
 $id = $_POST['id'];
 $type = $_POST['type'];
@@ -19,12 +22,14 @@ $update_at = $_POST['update_at'];
 //$icon_img = $_FILES["icon"]['tmp_name'];
 $location = $_POST['location'];
 $comment = $_POST['comment'];
+$idUsuario = $_SESSION['id_usuario'];
 
 $path = "upload/";
 
-$update_data = $conexion->prepare("UPDATE table_machines SET type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,comment=:comment_update WHERE id_machine=:id_update");
+$update_data = $conexion->prepare("UPDATE table_machines SET tec_id=:id_usuario,type_machine=:type_update,manufacturer=:fact_update,model=:model_update,serial=:serial_update,ram_slot_00=:ramslot00_update,ram_slot_01=:ramslot01_update,hard_drive=:disk_update,cpu=:cpu_update,ip_range=:ip_update,mac_address=:mac_update,anydesk=:anydesk_update,campus=:campus_update,location=:location_update,update_at=:at_update_update,comment=:comment_update WHERE id_machine=:id_update");
 //por 'id' en html
 $update_data->bindparam(':id_update', $id);
+$update_data->bindparam(':id_usuario', $idUsuario);
 $update_data->bindparam(':type_update', $type);
 $update_data->bindparam(':fact_update', $manufacturer);
 $update_data->bindparam(':model_update', $model);
