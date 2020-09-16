@@ -3,6 +3,11 @@
 <?php include("logout.php"); ?>
 <?php
 //session_start();
+if (!isset($nombreUsuario)) 
+{
+  header("Location: index.php");
+}
+else{
 $nombreUsuario = $_SESSION['nombre_usuario'];
 
 $conectados = $conexion->prepare("SELECT status FROM table_user_tec WHERE status=1");
@@ -11,6 +16,7 @@ $conectados->execute();
 $detallesU = $conexion->prepare("SELECT *FROM table_user_tec WHERE nickname_tec=:nombreUsuario");
 $detallesU->bindParam(':nombreUsuario', $nombreUsuario, PDO::PARAM_STR);
 $detallesU->execute();
+}
 ?>
 
 <!DOCTYPE html>
@@ -368,29 +374,27 @@ $detallesU->execute();
                 </div>
 
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Dirección Ip:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="ip" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" required>
+                      <input type="text" maxlength="15" class="form-control" name="ip" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" required>
                     </div>
                   </div>
 
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Dirección Mac:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
                       </div>
-                      <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="mac" placeholder="00-00-00-00-00" aria-label="Username" aria-describedby="basic-addon2" required>
+                      <input style="text-transform:uppercase;" maxlength="17" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="mac" placeholder="00-00-00-00-00-00" aria-label="Username" aria-describedby="basic-addon2" required>
                     </div>
                   </div>
-                </div>
 
-                <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Anydesk:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -399,7 +403,9 @@ $detallesU->execute();
                       <input type="text" class="form-control" name="anydesk" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                   </div>
+                </div>
 
+                <div class="form-row">
                   <div class="col-md-6 mb-3">
                     <label for="">Ubicación:</label>
                     <div class="input-group">
@@ -409,9 +415,9 @@ $detallesU->execute();
                       <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="location" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
                     </div>
                   </div>
-                </div>
 
-                <div class="mb-3">
+                  <div class="col-md-6 mb-3">
+                   <label for="">Sede del equipo:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
@@ -423,6 +429,7 @@ $detallesU->execute();
                       <?php } ?>
                     </select>
                   </div>
+                 </div>
                 </div>
 
                 <div class="form-group">
@@ -434,7 +441,7 @@ $detallesU->execute();
                   <div class="input-group-prepend">
                     <span class="input-group-text">Observacion:</span>
                   </div>
-                  <textarea class="form-control" id="" name="comment" aria-label="With textarea"></textarea>
+                  <textarea class="form-control" maxlength="200" id="" name="comment" aria-label="With textarea"></textarea>
                 </div>
 
                 <div class="modal-footer">
@@ -465,6 +472,7 @@ $detallesU->execute();
 
                 <div class="form-row">
                   <div class="col-md-6 mb-3">
+                    <label>Tipo de equipo:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
@@ -478,9 +486,7 @@ $detallesU->execute();
                       </select>
                     </div>
                   </div>
-                </div>
 
-                <div class="form-row">
                   <div class="col-md-6 mb-3">
                     <label for="">Fabricante:</label>
                     <div class="input-group">
@@ -601,29 +607,27 @@ $detallesU->execute();
                 </div>
 
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Dirección Ip:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="ip" id="ip_view" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                      <input type="text" maxlength="15" class="form-control" name="ip" id="ip_view" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" disabled>
                     </div>
                   </div>
 
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Dirección Mac:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="mac" id="mac_view" placeholder="00:00:00:00:00" aria-label="Username" aria-describedby="basic-addon2" disabled>
+                      <input type="text" maxlength="17" class="form-control" name="mac" id="mac_view" placeholder="00-00-00-00-00-00" aria-label="Username" aria-describedby="basic-addon2" disabled>
                     </div>
                   </div>
-                </div>
 
-                <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Anydesk:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -632,8 +636,10 @@ $detallesU->execute();
                       <input type="text" class="form-control" name="anydesk" id="anydesk_view" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1" disabled>
                     </div>
                   </div>
+                </div>
 
-                  <div class="col-md-6 mb-3">
+              <div class="form-row">  
+                <div class="col-md-6 mb-3">
                     <label for="">Ubicación:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -642,26 +648,17 @@ $detallesU->execute();
                       <input type="text" class="form-control" name="location" id="location_view" placeholder="" aria-label="Username" aria-describedby="basic-addon2" disabled>
                     </div>
                   </div>
-                </div>
 
-                <div class="mb-3">
-                  <div class="input-group">
+                <div class="col-md-6 mb-3">
+                  <label for="">Sede del equipo:</label>
+                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
                     </div>
-                    <select class="custom-select" name="campus" id="campus_view" disabled>
-                      <option value="">Seleccione sede...</option>
-                      <option>VIVA 1A IPS SURA 85</option>
-                      <option>VIVA 1A IPS COUNTRY</option>
-                      <option>VIVA 1A IPS SOLEDAD</option>
-                      <option>VIVA 1A IPS CALLE 30</option>
-                      <option>VIVA 1A IPS MACARENA</option>
-                      <option>VIVA 1A IPS CARRERA 16</option>
-                      <option>VIVA 1A IPS CASA MATRIZ</option>
-                      <option>VIVA 1A IPS SURA SAN JOSE</option>
-                    </select>
+                      <input type="text" class="form-control" name="campus" id="campus_view" placeholder="" aria-label="Username" aria-describedby="basic-addon2" disabled>
                   </div>
                 </div>
+              </div>
 
                 <div class="form-row">
                   <div class="col-md-6 mb-3">
@@ -692,7 +689,6 @@ $detallesU->execute();
                   <textarea class="form-control" name="comment" id="comment_view" aria-label="With textarea" disabled></textarea>
                 </div>
 
-
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
@@ -719,6 +715,7 @@ $detallesU->execute();
 
                 <div class="form-row">
                   <div class="col-md-6 mb-3">
+                     <label for="">Tipo de equipo:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-desktop"></i></span>
@@ -732,10 +729,8 @@ $detallesU->execute();
                       </select>
                     </div>
                   </div>
-                </div>
 
-                <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                   <div class="col-md-6 mb-3">
                     <label for="">Fabricante:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -855,67 +850,63 @@ $detallesU->execute();
                 </div>
 
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Dirección Ip:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id=""><i class="fas fa-ethernet"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="ip" id="ip_update" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" required>
+                      <input type="text" maxlength="15" class="form-control" name="ip" id="ip_update" placeholder="000.000.000.000" aria-label="Username" aria-describedby="basic-addon1" required>
                     </div>
                   </div>
 
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-4 mb-3">
                     <label for="">Dirección Mac:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id=""><i class="fas fa-barcode"></i></span>
                       </div>
-                      <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="mac" id="mac_update" placeholder="00-00-00-00-00" aria-label="Username" aria-describedby="basic-addon2" required>
+                      <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" maxlength="17" class="form-control" name="mac" id="mac_update" placeholder="00-00-00-00-00-00" aria-label="Username" aria-describedby="basic-addon2" required>
                     </div>
                   </div>
-                </div>
 
-                <div class="form-row">
-                  <div class="col-md-6 mb-3">
-                    <label for="">Anydesk:</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
+                   <div class="col-sm-4 mb-3">
+                     <label for="">Anydesk:</label>
+                       <div class="input-group">
+                         <div class="input-group-prepend">
                         <span class="input-group-text" id=""><img src="img/png/anydesk.png" width="20px" alt="" /></span>
                       </div>
                       <input type="text" class="form-control" name="anydesk" id="anydesk_update" placeholder="000 000 000" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                  </div>
+                   </div>
+                </div>
+              </div>
 
-                  <div class="col-md-6 mb-3">
-                    <label for="">Ubicación:</label>
+              <div class="form-row">  
+                <div class="col-md-6 mb-3">
+                    <label>Ubicación:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id=""><img src="img/svg/aim.svg" width="20px" alt="" /></span>
                       </div>
-                      <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" name="location" id="location_update" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
+                      <input  style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" maxlength="50" class="form-control" name="location" id="location_update" placeholder="" aria-label="Username" aria-describedby="basic-addon2" required>
                     </div>
-                  </div>
-                </div>
+                 </div>
 
-                <div class="mb-3">
+                <div class="col-md-6 mb-3">
+                  <label>Sede del equipo:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" for="validatedInputGroupSelect"><i class="fas fa-building"></i></span>
                     </div>
                     <select class="custom-select" name="campus" id="campus_update" required>
                       <option value="">Seleccione sede...</option>
-                      <option>VIVA 1A IPS SURA 85</option>
-                      <option>VIVA 1A IPS COUNTRY</option>
-                      <option>VIVA 1A IPS SOLEDAD</option>
-                      <option>VIVA 1A IPS CALLE 30</option>
-                      <option>VIVA 1A IPS MACARENA</option>
-                      <option>VIVA 1A IPS CARRERA 16</option>
-                      <option>VIVA 1A IPS CASA MATRIZ</option>
-                      <option>VIVA 1A IPS SURA SAN JOSE</option>
+                      <?php foreach ($allCampus as $campu) { ?>
+                        <option data-value="<?php echo $campu->id ?>"><?php echo $campu->campus ?></option>
+                      <?php } ?>
                     </select>
                   </div>
                 </div>
+              </div>
 
                 <div class="form-row">
                   <div class="col-md-6 mb-3">

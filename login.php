@@ -15,8 +15,9 @@ if (isset($data["login"])) {
         $queryUser->bindParam(':nickname_log', $nickname_log, PDO::PARAM_STR);
         $queryUser->bindParam(':password_log', $password_log, PDO::PARAM_STR);
         $queryUser->execute();
-
-        if ($queryUser->rowCount() > 0) {
+        
+        if ($queryUser->rowCount() > 0) //si la query me arroja registro mayor a 0
+        {
             date_default_timezone_set('America/Bogota');
             $lastLogin=date("Y-m-d H:i:s");
             $queryUpdate=$conexion->prepare("UPDATE table_user_tec SET status=1, time_login=:lastLogin WHERE nickname_tec=:nickname_log");
@@ -36,6 +37,6 @@ if (isset($data["login"])) {
             //echo $_SESSION['message'] = 'Username OR Password is wrong!';
 
         }
-}
+ }  
 
 ?>
