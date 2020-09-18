@@ -200,7 +200,7 @@ $detallesU->execute();
                 <td><?php echo $machine->ip_range ?></td>
                 <td><?php echo $machine->mac_address ?></td>
                 <td><?php echo $machine->anydesk ?></td>
-                <td><?php echo $machine->campus ?></td>
+                <td><?php echo $machine->campus_v1a ?></td>
                 <td style="display:none;"><?php echo $machine->location ?></td>
                 <td style="display:none;"><?php echo $machine->create_date ?></td>
                 <td style="display:none;"><?php echo $machine->update_at ?></td>
@@ -425,7 +425,7 @@ $detallesU->execute();
                     <select class="custom-select" name="campus" id="validatedInputGroupSelect" required>
                       <option value="">Seleccione sede...</option>
                       <?php foreach ($allCampus as $campu) { ?>
-                        <option data-value="<?php echo $campu->id ?>"><?php echo $campu->campus ?></option>
+                        <option value="<?php echo $campu->id ?>"><?php echo $campu->campus_v1a ?></option>
                       <?php } ?>
                     </select>
                   </div>
@@ -901,7 +901,7 @@ $detallesU->execute();
                     <select class="custom-select" name="campus" id="campus_update" required>
                       <option value="">Seleccione sede...</option>
                       <?php foreach ($allCampus as $campu) { ?>
-                        <option data-value="<?php echo $campu->id ?>"><?php echo $campu->campus ?></option>
+                        <option value="<?php echo $campu->id ?>"><?php echo $campu->campus_v1a ?></option>
                       <?php } ?>
                     </select>
                   </div>

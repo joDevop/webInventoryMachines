@@ -62,7 +62,7 @@ else
         $_SESSION['status'] = "image already exist '$rename_icon'";
         return header("Location:table.php");
     } else {
-        $insert_data = $conexion->prepare("INSERT INTO table_machines(tec_id,registered_by,type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus,location,create_date,imagen,comment) 
+        $insert_data = $conexion->prepare("INSERT INTO table_machines(tec_id,registered_by,type_machine,manufacturer,model,serial,ram_slot_00,ram_slot_01,hard_drive,cpu,ip_range,mac_address,anydesk,campus_id,location,create_date,imagen,comment) 
         VALUES (:idUsuario,:nombreUsuario,:type,:manufacturer,:model,:serial,:ram_slot_00,:ram_slot_01,:hard_drive,:cpu,:ip,:mac,:anydesk,:campus,:location,:actual_date,:icon,:comment);");
 
         $insert_data->bindparam(':idUsuario', $idUsuario);        
