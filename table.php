@@ -157,6 +157,7 @@ $detallesU->execute();
               <th scope="col">MAC</th>
               <th scope="col"><img src="img/png/anydesk.png" width="30px" alt="" />ANYDESK</th>
               <th scope="col">SEDE</th>
+              <th scope="col" style="display:none;"></th>
               <th scope="col" style="display:none;">LOCATION</th>
               <th scope="col" style="display:none;">FECHA DE CREACÍON</th>
               <th scope="col" style="display:none;">LAST UPDATE</th>
@@ -201,6 +202,7 @@ $detallesU->execute();
                 <td><?php echo $machine->mac_address ?></td>
                 <td><?php echo $machine->anydesk ?></td>
                 <td><?php echo $machine->campus_v1a ?></td>
+                <td style="display:none;"><?php echo $machine->id ?></td>
                 <td style="display:none;"><?php echo $machine->location ?></td>
                 <td style="display:none;"><?php echo $machine->create_date ?></td>
                 <td style="display:none;"><?php echo $machine->update_at ?></td>
@@ -901,7 +903,9 @@ $detallesU->execute();
                     <select class="custom-select" name="campus" id="campus_update" required>
                       <option value="">Seleccione sede...</option>
                       <?php foreach ($allCampus as $campu) { ?>
-                        <option value="<?php echo $campu->id ?>"><?php echo $campu->campus_v1a ?></option>
+                        <?php if($campu->id == $machine->campus_id): ?>
+                        <option value="<?php echo $campu->id ?>" selected><?php echo $campu->campus_v1a ?></option>
+                        <?php endif ;?>
                       <?php } ?>
                     </select>
                   </div>

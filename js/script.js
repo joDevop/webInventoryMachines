@@ -39,11 +39,11 @@ $(".updatebtn").on("click", function () {
   $("#ip_update").val(datos[10]);
   $("#mac_update").val(datos[11]);
   $("#anydesk_update").val(datos[12]);
-  $("#campus_update").val(datos[13]);
-  $("#location_update").val(datos[14]);
-  $("#at_created_update").val(datos[15]);
-  $("#at_update_update").val(datos[16]);
-  $("#comment_update").val(datos[17]);
+  $("#campus_update").val(datos[16]);
+  $("#location_update").val(datos[15]);
+  $("#at_created_update").val(datos[16]);
+  $("#at_update_update").val(datos[17]);
+  $("#comment_update").val(datos[18]);
 });
 
 //MODAL VIEW!
