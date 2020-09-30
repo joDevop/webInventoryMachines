@@ -902,7 +902,7 @@ $detallesU->execute();
                     </div>
                     <select class="custom-select" name="campus" id="campus_update" required>
                       <option value="">Seleccione sede...</option>
-                      <?php foreach ($allCampus as $campu) { ?>
+                      <?php foreach ($listCampus as $campu) { ?>
                         <?php if($campu->id == $machine->campus_id): ?>
                         <option value="<?php echo $campu->id ?>" selected><?php echo $campu->campus_v1a ?></option>
                         <?php endif ;?>

@@ -11,8 +11,8 @@ foreach ($machines as $row);
 
 
 $query01 = $conexion->query("SELECT id,campus_v1a FROM table_campus_v1a");
-$allCampus =$query01->fetchAll(PDO::FETCH_OBJ);
-foreach ($allCampus as $campu);
+$listCampus =$query01->fetchAll(PDO::FETCH_OBJ);
+foreach ($listCampus as $campu);
 
 //crear otra consulta  INNER JOIN donde obtenga el valor de la sede para mostrar en el select de modal-update
 
